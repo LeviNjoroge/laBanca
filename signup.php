@@ -7,7 +7,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PHP Demo</title>
+    <title>LaBanca</title>
 </head>
 <body>
     <div class="form-container">
