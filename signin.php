@@ -13,6 +13,7 @@ session_start();
 </head>
 <body>
     <div class="form-container">
+        <h1>Welcome Back to LaBanca</h1>
         <h2>Signin Form</h2>
         <form action="" method="post">
             <label for="username">Username / Email:</label>
