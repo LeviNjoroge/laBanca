@@ -40,8 +40,6 @@ if (isset($_POST["signup"])) {
             $error = "Could not register user. <br>Try again later!";
         }
     }
-    $_SESSION['first_name'] = $first_name;
-    $_SESSION['last_name'] = $last_name;
 }
 
 ?>
