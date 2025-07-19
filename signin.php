@@ -18,6 +18,10 @@ if(isset($_POST["signin"])){
         $_SESSION['first_name'] = $user["first_name"];
         $_SESSION['last_name'] = $user["last_name"];
         $_SESSION['id'] = $user["id"];
+        $_SESSION['surname'] = $surname;
+        $_SESSION['email'] = $email;
+        $_SESSION['phone'] = $phone;
+        $_SESSION['balance'] = $balance;
         
         if (password_verify($password, $user_password)) {
             $error = "login successful!";
