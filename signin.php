@@ -31,7 +31,6 @@ session_start();
 </html>
 
 <?php
-static $count = 3;
 $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -48,17 +47,15 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['id'] = $user["id"];
     
     if (password_verify($password, $user_password)) {
-        echo "login successful";
+        error_log("login successful");
         header("Location: index.php");
     }
     else {
-        echo "Incorrect password";
-        
+        error_log("Incorrect password");
     }
 }
 else {
-    $count--;
-    echo "Incorrect username <br>You have {$count} more trys remaining";
+    echo "Incorrect username <br>";
     if ($count <1) {
         header("Location: signup.php");
     }
