@@ -5,11 +5,17 @@ if (empty($_SESSION['id'])) {
 }
 include("api.php");
 ?>
-<header>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
         <nav>
-        <a href="/index.php">Home</a>
-        <a href="/transfer.php">Money Transfer</a>
-        <a href="/contact.php">Contact Us</a>
-        <a href="/profile.php">Profile</a>
-    </nav>
-</header>
+            <a href="/index.php">Home</a>
+            <a href="/transfer.php">Money Transfer</a>
+            <a href="/contact.php">Contact Us</a>
+            <a href="/profile.php">Profile</a>
+        </nav>
+    </header>
+</body>
