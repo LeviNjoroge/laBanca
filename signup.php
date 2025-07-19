@@ -30,7 +30,7 @@ if (isset($_POST["signup"])) {
 
     try{
         mysqli_query($conn, $sql_add_user);
-        header("Location: index.php");
+        header("Location: signin.php");
     }
     catch(Exception $e){
         if (str_contains($e->getMessage(), 'Duplicate entry')) {
