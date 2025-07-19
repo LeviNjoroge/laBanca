@@ -8,11 +8,6 @@ $first_name= $_SESSION['first_name'];
 $last_name= $_SESSION['last_name'];
 
 include("api.php");
-
-// if (isset($_POST["logout"])) {
-//     session_destroy();
-//     header("Location: signin.php");
-// }
 ?>
 
 <!DOCTYPE html>
@@ -31,5 +26,6 @@ include("api.php");
         <a href="profile.php">Profile</a>
     </nav>
     <h1>Hi <?php echo $first_name?>!</h1>
+
 </body>
 </html>

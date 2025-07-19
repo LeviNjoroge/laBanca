@@ -1,6 +1,11 @@
 <?php
-include("api.php");
 session_start();
+// if (empty($_SESSION['id'])) {
+//     header("Location: signin.php");
+// }
+$user_email = $_SESSION["email"];
+$user_phone = $_SESSION["phone"];
+include("api.php");
 ?>
 
 <!DOCTYPE html>

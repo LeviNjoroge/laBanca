@@ -1,6 +1,14 @@
 <?php
+// to let users change their personal details or even delete their account
+
 session_start();
+
 include("api.php");
+
+// if (isset($_POST["logout"])) {
+//     session_destroy();
+//     header("Location: signin.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
