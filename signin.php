@@ -2,6 +2,36 @@
 // sign in page
 include("database.php");
 session_start();
+
+if(isset($_POST["signin"])){
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $verify_user = "SELECT * FROM users WHERE username = '$username' OR email_address = '$username'";
+
+    $result = mysqli_query($conn, $verify_user);
+
+    if (mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $user_username = $user["username"];
+        $user_password = $user["password"];
+        $_SESSION['first_name'] = $user["first_name"];
+        $_SESSION['last_name'] = $user["last_name"];
+        $_SESSION['id'] = $user["id"];
+        
+        if (password_verify($password, $user_password)) {
+            $error = "login successful!";
+            header("Location: index.php");
+        }
+        else {
+            $error = "Incorrect password!";
+        }
+    }
+    else {
+        $error = "Incorrect username !";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,42 +54,18 @@ session_start();
             <input type="password" name="password" id="password" placeholder="********" required> <br>
 
             <input type="submit" value="Sign In" name="signin" id="submit">
-            
+            <p id="error">
+            <?php
+            if (isset($error)) {
+                echo $error;
+            }
+            ?>
+            </p>
         </form>
     </div>
 </body>
 </html>
 
 <?php
-$username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-$password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-
-$verify_user = "SELECT * FROM users WHERE username = '$username' OR email_address = '$username'";
-
-$result = mysqli_query($conn, $verify_user);
-
-if (mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    $_SESSION['username'] = $user_username = $user["username"];
-    $user_password = $user["password"];
-    $_SESSION['first_name'] = $user["first_name"];
-    $_SESSION['last_name'] = $user["last_name"];
-    $_SESSION['id'] = $user["id"];
-    
-    if (password_verify($password, $user_password)) {
-        error_log("login successful");
-        header("Location: index.php");
-    }
-    else {
-        error_log("Incorrect password");
-    }
-}
-else {
-    echo "Incorrect username <br>";
-    if ($count <1) {
-        header("Location: signup.php");
-    }
-}
-
 mysqli_close($conn);
 ?>
