@@ -56,10 +56,11 @@ if(isset($_POST["signin"])){
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" placeholder="********" required> <br>
+            
+            Don't have an account? <a href="signup.php">Register here</a>! <br>
 
             <input type="submit" value="Sign In" name="signin" id="submit">
-            <br>
-            Don't have an account? <a href="signup.php">Register here</a>!
+            
             <p id="error">
             <?php
             if (isset($error)) {
