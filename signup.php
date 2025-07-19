@@ -82,9 +82,7 @@ if (isset($_POST["signup"])) {
             <label for="password">Password:</label> 
             <input type="password" name="password" id="password" required> <br>
 
-            Already registered? <a href="signin.php">Log in here</a>!
-
-            <input type="submit" value="Submit" name="signup" id="submit"> <br>
+            <input type="submit" value="Submit" name="signup" id="submit">  Already registered? <a href="signin.php">Log in here</a>!<br>
 
             <p id="error">
             <?php

@@ -16,6 +16,4 @@ function check_balance($id){
         return 0;
     }
 }
-
-mysqli_close($conn);
 ?>

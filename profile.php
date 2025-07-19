@@ -1,14 +1,17 @@
 <?php
 // to let users change their personal details or even delete their account
 include("components/header.php");
+$user_id = $_SESSION['id'];
+
 if (isset($_POST["logout"])) {
     session_destroy();
     header("Location: signin.php");
 }
 if (isset($_POST["delete_account"])) {
-    echo "<script>alert('DELETING ACCOUNT!')</script>";
-    $sql_delete_all = "DEKETE FROM users WHERE user_id = {$_SESSION['id']}";
+    echo "<script>alert('DELETING ACCOUNT')</script>";
+    $sql_delete_all = "DELETE FROM users WHERE id = {$user_id}";
     mysqli_query($conn, $sql_delete_all);
+    echo "<script>alert('ACCOUNT DELETED')</script>";
     session_destroy();
     header("Location: signin.php");
 }

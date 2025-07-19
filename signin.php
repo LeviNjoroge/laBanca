@@ -18,10 +18,10 @@ if(isset($_POST["signin"])){
         $_SESSION['first_name'] = $user["first_name"];
         $_SESSION['last_name'] = $user["last_name"];
         $_SESSION['id'] = $user["id"];
-        $_SESSION['surname'] = $surname;
-        $_SESSION['email'] = $email;
-        $_SESSION['phone'] = $phone;
-        $_SESSION['balance'] = $balance;
+        $_SESSION['surname'] = $user["surname"];
+        $_SESSION['email'] = $user["email"];
+        $_SESSION['phone'] = $user["phone"];
+        $_SESSION['balance'] = $user["balance"];
         
         if (password_verify($password, $user_password)) {
             $error = "login successful!";
@@ -56,10 +56,8 @@ if(isset($_POST["signin"])){
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" placeholder="********" required> <br>
-            
-            Don't have an account? <a href="signup.php">Register here</a>! <br>
 
-            <input type="submit" value="Sign In" name="signin" id="submit">
+            <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>! 
             
             <p id="error">
             <?php
