@@ -1,8 +1,5 @@
 <?php
-session_start();
-// if (empty($_SESSION['id'])) {
-//     header("Location: signin.php");
-// }
+
 
 $first_name= $_SESSION['first_name'];
 $last_name= $_SESSION['last_name'];
@@ -19,12 +16,7 @@ include("api.php");
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="#">Home</a>
-        <a href="transfer.php">Money Transfer</a>
-        <a href="contact.php">Contact Us</a>
-        <a href="profile.php">Profile</a>
-    </nav>
+    <?php include("components/header.php")?>
     <h1>Hi <?php echo $first_name?>!</h1>
 
 </body>
