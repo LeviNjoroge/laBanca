@@ -1,13 +1,35 @@
 <?php
 session_start();
 if (empty($_SESSION['id'])) {
-    header("Location: signin.php");
+    header("Location: /signin.php");
 }
 include("api.php");
 ?>
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+    nav{
+        margin-left: 20%;
+        width: 60%;
+        margin-top: 1%;
+        padding: 5px;
+    }
+
+    a{
+        margin-right: 5%;
+        color: rgb(43, 43, 43);
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+
+    }
+
+    a:active{
+        border-bottom: 1px solid black;
+        color:rgb(145, 145, 145)
+    }
+    </style>
 </head>
 <body>
     <header>
