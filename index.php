@@ -1,8 +1,13 @@
 <?php
+/* 
+This page will host the following:
+    A greeting + the second name of the user
+    their current balance
+    recent transactons
+*/
+include("components/header.php");
 $first_name= $_SESSION['first_name'];
 $last_name= $_SESSION['last_name'];
-
-include("api.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +19,6 @@ include("api.php");
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <?php include("components/header.php")?>
     <h1>Hi <?php echo $first_name?>!</h1>
 
 </body>

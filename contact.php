@@ -1,8 +1,5 @@
 <?php
-session_start();
-// if (empty($_SESSION['id'])) {
-//     header("Location: signin.php");
-// }
+include("components/header.php");
 $user_email = $_SESSION["email"];
 $user_phone = $_SESSION["phone"];
 include("api.php");

@@ -1,9 +1,8 @@
 <?php
-session_start();
+include("components/header.php");
 $user_email = $_SESSION["email"];
 $user_phone = $_SESSION["phone"];
 $balance = $_SESSION["balance"];
-include("api.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +14,6 @@ include("api.php");
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <?php include("components/header.php")?>
 </body>
 </html>

@@ -1,8 +1,9 @@
 <?php
-// session_start();
-// if (empty($_SESSION['id'])) {
-//     header("Location: signin.php");
-// }
+session_start();
+if (empty($_SESSION['id'])) {
+    header("Location: signin.php");
+}
+include("api.php");
 ?>
 <header>
         <nav>
