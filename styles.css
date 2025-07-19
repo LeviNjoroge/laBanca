@@ -1,7 +1,47 @@
-body{
-    font-family: 'Courier New', Courier, monospace;
+.form-container{
+    font-family:'Courier New', Courier, monospace;
+    border: 1px solid gray;
+    color: rgb(78, 78, 78);
+    background-color: rgb(216, 216, 216);
+
+    margin-left: 20%;
+    margin-top: 1%;
+    height: 80%;
+    width: 60%;
+    border-radius: 5px;
+    padding-left:20px;
+    padding-bottom:10px;
 }
 
 h1{
-    
+    color: rgb(57, 57, 57);
+}
+
+label{
+    font-size:medium;
+    margin-top: 50%;
+}
+
+input{
+    margin-left: 1%;
+    border: 1px solid rgba(128, 128, 128, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 4px;
+    width: 25%;
+    background-color: rgba(240, 248, 255, 0);
+}
+hr{
+    margin-right: 40%;
+    width: 60%;
+}
+
+#submit{
+    margin-top: 10px;
+    border: 1px solid gray;
+    background-color: rgb(67, 67, 67);
+    color: aliceblue;
+    border-radius: 5px;
+    width: 30%;
+    padding: 3px;
+    font-weight: bold;
 }
