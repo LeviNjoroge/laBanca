@@ -10,6 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBanca</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="form-container">
@@ -17,12 +18,12 @@ session_start();
         <h2>Signin Form</h2>
         <form action="" method="post">
             <label for="username">Username / Email:</label>
-            <input type="text" name="username" id="username" placeholder="joe_doe" required>
+            <input type="text" name="username" id="username" placeholder="joe_doe" required> <br>
 
             <label for="password">Password:</label>
-            <input type="password" name="password" id="password" placeholder="********" required>
+            <input type="password" name="password" id="password" placeholder="********" required> <br>
 
-            <input type="submit" value="Sign In" name="signin">
+            <input type="submit" value="Sign In" name="signin" id="submit">
             
         </form>
     </div>
