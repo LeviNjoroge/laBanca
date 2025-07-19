@@ -46,6 +46,13 @@ hr{
     font-weight: bold;
 }
 
+#logout{
+    margin-right: 10px;
+    background-color: red;
+    color: aliceblue;
+    font-weight: bold;
+}
+
 #error{
     color: red;
 }
