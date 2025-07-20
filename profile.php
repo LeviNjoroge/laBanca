@@ -8,7 +8,7 @@ $user_id = $_SESSION['id'];
 $user_surname = $_SESSION['surname'];
 $user_email = $_SESSION['email'];
 $user_phone = $_SESSION['phone'];
-$user_balance = $_SESSION['balance'];
+$user_profile_picture = $_SESSION['profile_picture'];
 
 
 if (isset($_POST["logout"])) {
@@ -23,6 +23,12 @@ if (isset($_POST["delete_account"])) {
     session_destroy();
     header("Location: signin.php");
 }
+if(file_exists("profile_picture_images/{$user_profile_picture}")){
+    $profile_picture = "profile_picture_images/{$user_profile_picture}";
+}
+else{
+    $profile_picture= "profile_picture_images/default.jpeg";
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +43,7 @@ if (isset($_POST["delete_account"])) {
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
             <form action="" method="post">
+            <img src="<?php echo $profile_picture?>" alt="No Profile Picture Found"> <br>
             <label for="first_name">First Name:</label> 
             <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
@@ -56,10 +63,10 @@ if (isset($_POST["delete_account"])) {
             <input type="text" name="username" id="username" placeholder="<?php echo $user_username?>"> <br>
 
             <label for="email">Email Address:</label> 
-            <input type="email" name="email" id="email" placeholder="<?php echo $user_first_name?>"> <br>
+            <input type="email" name="email" id="email" placeholder="<?php echo $user_email?>"> <br>
 
             <label for="phone">Phone Number:</label> 
-            <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_first_name?>"> <br>
+            <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_phone?>"> <br>
 
             <label for="password">Password:</label> 
             <input type="password" name="password" id="password"> <br>
