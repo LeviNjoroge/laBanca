@@ -4,22 +4,26 @@ if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
 }
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <style>
     header{
-        background-color: gray;
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: rgba(12,2,5,10%);
     }
     nav{
-        margin-left: 20%;
-        width: 60%;
+        width: 80%;
         margin-top: 1%;
-        padding: 5px;
+        padding: 10px;
     }
 
     a{
-        margin-right: 5%;
+        margin-right: 10%;
         color: rgb(43, 43, 43);
         text-decoration: none;
         font-weight: bold;
@@ -43,3 +47,4 @@ if (empty($_SESSION['id'])) {
         </nav>
     </header>
 </body>
+</html>
