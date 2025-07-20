@@ -52,9 +52,10 @@ hr{
 
 #logout{
     margin-right: 10px;
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     color: aliceblue;
     font-weight: bold;
+    border-bottom: none;
 }
 
 #error{

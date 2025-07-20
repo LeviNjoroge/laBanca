@@ -26,7 +26,7 @@ if (isset($_POST["delete_account"])) {
 </head>
 <body>
 
-    <form action="" method="post"><input type="submit" value="Delete Account!" name="delete_account" id="logout"></form>
+    <form action="" method="post"><input type="submit" value="Delete Account!" name="delete_account" id="logout"></form> <br>
 <!--Logout button-->
     <form action="" method="post"><input type="submit" value="logout!" name="logout" id="logout"></form>
 </body>
