@@ -52,7 +52,7 @@ hr{
 
 #logout{
     margin-right: 10px;
-    background-color: red;
+    background-color: rgb(164, 93, 93);
     color: aliceblue;
     font-weight: bold;
 }
