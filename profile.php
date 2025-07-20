@@ -1,7 +1,15 @@
 <?php
 // to let users change their personal details or even delete their account
 include("components/header.php");
+$user_username = $_SESSION['username'];
+$user_first_name = $_SESSION['first_name'];
+$user_last_name = $_SESSION['last_name'];
 $user_id = $_SESSION['id'];
+$user_surname = $_SESSION['surname'];
+$user_email = $_SESSION['email'];
+$user_phone = $_SESSION['phone'];
+$user_balance = $_SESSION['balance'];
+
 
 if (isset($_POST["logout"])) {
     session_destroy();
@@ -30,31 +38,35 @@ if (isset($_POST["delete_account"])) {
     <h3>Edit Personal Information:</h3>
             <form action="" method="post">
             <label for="first_name">First Name:</label> 
-            <input type="text" name="first_name" id="first_name" placeholder="Joe"> <br>
+            <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
             <label for="last_name">Last Name:</label> 
-            <input type="text" name="last_name" id="last_name" placeholder="William"> <br>  
+            <input type="text" name="last_name" id="last_name" placeholder="<?php echo $user_last_name?>"> <br>  
 
             <label for="surname">Surname:</label>
-            <input type="text" name="surname" id="surname" placeholder="Doe"> <br><hr>
+            <input type="text" name="surname" id="surname" placeholder="<?php echo $user_surname?>"> <br><hr>
 
             <label for="date_of_birth">Date of Birth:</label> 
-            <input type="date" name="date_of_birth" id="date_of_birth"> <br>
+            <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>"> <br>
 
             <label for="id">National ID No.:</label> 
-            <input type="number" name="id" id="id" placeholder="88888888"> <br> <hr>
+            <input type="number" name="id" id="id" placeholder="<?php echo $user_id?>"> <br> <hr>
 
             <label for="username">Username:</label> 
-            <input type="text" name="username" id="username" placeholder="joedoe01"> <br>
+            <input type="text" name="username" id="username" placeholder="<?php echo $user_username?>"> <br>
 
             <label for="email">Email Address:</label> 
-            <input type="email" name="email" id="email" placeholder="example@email.com"> <br>
+            <input type="email" name="email" id="email" placeholder="<?php echo $user_first_name?>"> <br>
 
             <label for="phone">Phone Number:</label> 
-            <input type="tel" name="phone" id="phone" placeholder="0712345678"> <br>
+            <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_first_name?>"> <br>
 
             <label for="password">Password:</label> 
             <input type="password" name="password" id="password"> <br>
+
+            <label for="password">Confirm Password:</label> 
+            <input type="password" name="password" id="password"> <br>
+
         <input type="submit" value="Save Changes" id="submit"> <br><hr>
         </form>
 </div>
