@@ -17,3 +17,6 @@ include("api.php");
     
 </body>
 </html>
+<?php
+include("components/footer.php");
+?>

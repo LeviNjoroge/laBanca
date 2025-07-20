@@ -61,3 +61,7 @@ hr{
 #error{
     color: red;
 }
+
+#profile_picture_img{
+    height: 150px;
+}

@@ -23,3 +23,6 @@ $last_name= $_SESSION['last_name'];
 
 </body>
 </html>
+<?php
+include("components/footer.php");
+?>

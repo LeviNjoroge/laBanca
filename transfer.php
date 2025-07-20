@@ -16,3 +16,6 @@ $balance = $_SESSION["balance"];
 <body>
 </body>
 </html>
+<?php
+include("components/footer.php");
+?>

@@ -3,6 +3,14 @@ session_start();
 if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
 }
+$user_profile_picture = $_SESSION['profile_picture'];
+
+if(file_exists("profile_picture_images/{$user_profile_picture}")){
+    $profile_picture = "profile_picture_images/{$user_profile_picture}";
+}
+else{
+    $profile_picture= "profile_picture_images/default.jpeg";
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +23,10 @@ if (empty($_SESSION['id'])) {
         background-color: rgba(204, 203, 203, 1);
     }
     nav{
-        margin-left: 20%;
         padding: 10px;
     }
 
-    a{
+    #nav-links{
         margin-right: 10%;
         color: rgb(43, 43, 43);
         text-decoration: none;
@@ -28,19 +35,32 @@ if (empty($_SESSION['id'])) {
 
     }
 
-    a:active{
+    #nav-links:active{
         border-bottom: 1px solid black;
         color:rgb(145, 145, 145)
+    }
+
+    #img_profile_pic{
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    #nav-profile{
+        margin-right: 12%;
+        color: rgba(94, 93, 93, 1);
+        text-decoration: none;
+        font-weight: bold;
     }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="/index.php">Home</a>
-            <a href="/transfer.php">Money Transfer</a>
-            <a href="/contact.php">Contact Us</a>
-            <a href="/profile.php">Profile</a>
+            <a href="/profile.php" id="nav-profile"><img src="<?php echo $profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
+            <a href="/index.php" id="nav-links">Home</a>
+            <a href="/transfer.php" id="nav-links">Money Transfer</a>
+            <a href="/contact.php" id="nav-links">Contact Us</a>
+            <a href="/profile.php" id="nav-links">Profile</a>
         </nav>
     </header>
 </body>

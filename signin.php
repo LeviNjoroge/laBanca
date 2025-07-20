@@ -21,6 +21,7 @@ if(isset($_POST["signin"])){
         $_SESSION['surname'] = $user["surname"];
         $_SESSION['email'] = $user["email"];
         $_SESSION['phone'] = $user["phone"];
+        $_SESSION['balance'] = $user["balance"];
         $_SESSION['profile_picture'] = $user["profile_picture"];
         
         if (password_verify($password, $user_password)) {

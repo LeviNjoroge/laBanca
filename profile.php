@@ -43,9 +43,9 @@ else{
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
             <form action="" method="post">
-            <img src="<?php echo $profile_picture?>" alt="No Profile Picture Found"> <br>
+            <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
             <label for="profile_picture">Change/Add Profile Picture: </label> 
-            <input type="file" name="" id=""> <br>
+            <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg"> <br>
 
             <label for="first_name">First Name:</label> 
             <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
@@ -86,3 +86,7 @@ else{
     <form action="" method="post"><input type="submit" value="logout!" name="logout" id="logout"></form><hr>
 </body>
 </html>
+
+<?php
+include("components/footer.php");
+?>
