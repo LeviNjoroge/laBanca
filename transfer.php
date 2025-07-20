@@ -14,6 +14,5 @@ $balance = $_SESSION["balance"];
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <?php include("components/header.php")?>
 </body>
 </html>

@@ -12,13 +12,10 @@ if (empty($_SESSION['id'])) {
     <link rel="stylesheet" href="/styles.css">
     <style>
     header{
-        margin-left: 5%;
-        margin-right: 5%;
-        background-color: rgba(12,2,5,10%);
+        background-color: rgba(204, 203, 203, 1);
     }
     nav{
-        width: 80%;
-        margin-top: 1%;
+        margin-left: 20%;
         padding: 10px;
     }
 
