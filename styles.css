@@ -1,5 +1,5 @@
 body{
-    /* padding-left: 5%; */
+
 }
 
 .form-container{
@@ -52,7 +52,7 @@ hr{
 
 #logout{
     margin-right: 10px;
-    background-color: rgb(164, 93, 93);
+    background-color: red;
     color: aliceblue;
     font-weight: bold;
 }
