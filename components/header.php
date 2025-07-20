@@ -3,12 +3,14 @@ session_start();
 if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
 }
-include("api.php");
 ?>
 
 <head>
     <link rel="stylesheet" href="/styles.css">
     <style>
+    header{
+        background-color: gray;
+    }
     nav{
         margin-left: 20%;
         width: 60%;
