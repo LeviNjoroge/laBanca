@@ -44,6 +44,9 @@ else{
     <h3>Edit Personal Information:</h3>
             <form action="" method="post">
             <img src="<?php echo $profile_picture?>" alt="No Profile Picture Found"> <br>
+            <label for="profile_picture">Change/Add Profile Picture: </label> 
+            <input type="file" name="" id=""> <br>
+
             <label for="first_name">First Name:</label> 
             <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
