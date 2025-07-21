@@ -29,6 +29,12 @@ if(file_exists("profile_picture_images/{$user_profile_picture}")){
 else{
     $profile_picture= "profile_picture_images/default.jpeg";
 } 
+
+if (isset($_POST["submit"])) {
+    $file = $_FILES["profile_picture"];
+    $filename = $_FILES["name"];
+    echo $filename;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +48,7 @@ else{
 <!--Change details-->
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
-            <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             
             <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
             <label for="profile_picture">Change/Add Profile Picture: </label> 
@@ -78,7 +84,7 @@ else{
             <label for="password">Confirm Password:</label> 
             <input type="password" name="password" id="password"> <br>
 
-        <input type="submit" value="Save Changes" id="submit"> <br><hr>
+            <input type="submit" value="Save Changes" id="submit"> <br><hr>
         </form>
 </div>
 <!--Delete account-->
