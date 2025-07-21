@@ -42,7 +42,8 @@ else{
 <!--Change details-->
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
+            
             <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
             <label for="profile_picture">Change/Add Profile Picture: </label> 
             <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg"> <br>
