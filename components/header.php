@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("api.php");
 if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
 }
@@ -19,38 +20,38 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <style>
-    header{
-        background-color: rgba(204, 203, 203, 1);
-    }
-    nav{
-        padding: 10px;
-    }
+        header{
+            background-color: rgba(204, 203, 203, 1);
+        }
+        nav{
+            padding: 10px;
+        }
 
-    #nav-links{
-        margin-right: 10%;
-        color: rgb(43, 43, 43);
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
+        #nav-links{
+            margin-right: 10%;
+            color: rgb(43, 43, 43);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
 
-    }
+        }
 
-    #nav-links:active{
-        border-bottom: 1px solid black;
-        color:rgb(145, 145, 145)
-    }
+        #nav-links:active{
+            border-bottom: 1px solid black;
+            color:rgb(145, 145, 145)
+        }
 
-    #img_profile_pic{
-        height: 20px;
-        border-radius: 50%;
-    }
+        #img_profile_pic{
+            height: 20px;
+            border-radius: 50%;
+        }
 
-    #nav-profile{
-        margin-right: 12%;
-        color: rgba(94, 93, 93, 1);
-        text-decoration: none;
-        font-weight: bold;
-    }
+        #nav-profile{
+            margin-right: 12%;
+            color: rgba(94, 93, 93, 1);
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>

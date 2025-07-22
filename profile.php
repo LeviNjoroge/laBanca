@@ -10,11 +10,13 @@ $user_email = $_SESSION['email'];
 $user_phone = $_SESSION['phone'];
 $user_profile_picture = $_SESSION['profile_picture'];
 
-
+// logout of account
 if (isset($_POST["logout"])) {
     session_destroy();
     header("Location: signin.php");
 }
+
+// delete account
 if (isset($_POST["delete_account"])) {
     echo "<script>alert('DELETING ACCOUNT')</script>";
     $sql_delete_all = "DELETE FROM users WHERE id = {$user_id}";
@@ -23,22 +25,19 @@ if (isset($_POST["delete_account"])) {
     session_destroy();
     header("Location: signin.php");
 }
-if(file_exists("profile_picture_images/{$user_profile_picture}")){
-    $profile_picture = "profile_picture_images/{$user_profile_picture}";
-}
-else{
+
+// show profile picture
+if(file_exists("profile_picture_images/".$user_profile_picture)){
+    $profile_picture = "profile_picture_images/".$user_profile_picture;
+} else{
     $profile_picture= "profile_picture_images/default.jpeg";
 } 
 
-if (isset($_POST["submit"])) {
-    $file = $_FILES["profile_picture"];
-    $filename = $_FILES["name"];
-    echo $filename;
-}
-
+// change profile picture
 if (isset($_POST["change_profile_pic"])) {
     $file = $_FILES["profile_picture"];
-    $file_extextension = strtolower(end(explode('.',$file['name'])));
+    $file_name_partitioned = explode('.',$file['name']);
+    $file_extextension = strtolower(end($file_name_partitioned));
     $accepted_extenstions = array('jpg', 'png', 'jpeg');
 
     if($file['error']){
@@ -53,11 +52,12 @@ if (isset($_POST["change_profile_pic"])) {
                 $current_file_location = $file['tmp_name'];
                 $new_file_name = $user_id .".". $file_extextension;
                 $new_file_location = "profile_picture_images/" . $new_file_name;
+                // file_
                 move_uploaded_file($current_file_location, $new_file_location);
                 try { // updating file name in dtb
-                    $query_update_file_name = "INSERT INTO users(profile_picture) VALUES('$new_file_name')";
+                    $query_update_file_name = "UPDATE users SET profile_picture = '$new_file_name' WHERE id = '$user_id'";
                     mysqli_query($conn, $query_update_file_name);
-                    $success = "Image uploaded successfully!<br>Login to see changes.";
+                    $success = "Image uploaded successfully! Login to see changes.";
                 } catch (Exception $e) {
                     $error = "There was an error updating your file!";
                 }
@@ -84,9 +84,9 @@ if (isset($_POST["change_profile_pic"])) {
             <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
             <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
             <?php if (isset($error)) {
-                echo "<script>alert({$error})</script>";
+                echo "<script>alert('{$error}')</script>";
             }elseif (isset($success)) {
-                echo "<script>alert({$success})</script>";
+                echo "<script>alert('{$success}')</script>";
             }
             ?>
         </form>
