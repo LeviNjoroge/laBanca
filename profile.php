@@ -55,7 +55,9 @@ if (isset($_POST["change_profile_pic"])) {
                 $new_file_location = "profile_picture_images/" . $new_file_name;
                 move_uploaded_file($current_file_location, $new_file_location);
                 try { // updating file name in dtb
-                    $query_update_file_name = "INSERT INTO users(profile_pictures) VALUES('$new_file_name')";
+                    $query_update_file_name = "INSERT INTO users(profile_picture) VALUES('$new_file_name')";
+                    mysqli_query($conn, $query_update_file_name);
+                    $success = "";
                 } catch (Exception $e) {
                     $error = "There was an error updating your file!";
                 }
