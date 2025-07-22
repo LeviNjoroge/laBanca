@@ -35,6 +35,10 @@ if (isset($_POST["submit"])) {
     $filename = $_FILES["name"];
     echo $filename;
 }
+
+if (isset($_POST["change_profile_pic"])) {
+    $file = $_FILE["profile_picture"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +56,7 @@ if (isset($_POST["submit"])) {
             <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
             <label for="profile_picture">Change/Add Profile Picture: </label> 
             <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
-            <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; border: 1px solid; backgound-color: rgba(87, 87, 87, 1);"> <br>
+            <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
         </form>
         <form action="" method="post">
             <label for="first_name">First Name:</label> 
