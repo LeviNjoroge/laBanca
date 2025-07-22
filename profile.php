@@ -49,11 +49,12 @@ if (isset($_POST["submit"])) {
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
         <form action="" method="post" enctype="multipart/form-data">
-            
             <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
             <label for="profile_picture">Change/Add Profile Picture: </label> 
-            <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg"> <br>
-
+            <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
+            <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; border: 1px solid; backgound-color: rgba(0,0,0,0.5);"> <br>
+        </form>
+        <form action="" method="post">
             <label for="first_name">First Name:</label> 
             <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
