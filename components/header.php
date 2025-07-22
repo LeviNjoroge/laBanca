@@ -6,8 +6,8 @@ if (empty($_SESSION['id'])) {
 }
 $user_profile_picture = $_SESSION['profile_picture'];
 
-if(file_exists("profile_picture_images/{$user_profile_picture}")){
-    $profile_picture = "profile_picture_images/{$user_profile_picture}";
+if(file_exists("profile_picture_images/".$user_profile_picture)){
+    $profile_picture = "profile_picture_images/".$user_profile_picture;
 }
 else{
     $profile_picture= "profile_picture_images/default.jpeg";
