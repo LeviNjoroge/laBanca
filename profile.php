@@ -57,7 +57,7 @@ if (isset($_POST["change_profile_pic"])) {
                 try { // updating file name in dtb
                     $query_update_file_name = "INSERT INTO users(profile_picture) VALUES('$new_file_name')";
                     mysqli_query($conn, $query_update_file_name);
-                    $success = "";
+                    $success = "Image uploaded successfully!<br>Login to see changes.";
                 } catch (Exception $e) {
                     $error = "There was an error updating your file!";
                 }
@@ -83,6 +83,12 @@ if (isset($_POST["change_profile_pic"])) {
             <label for="profile_picture">Change/Add Profile Picture: </label> 
             <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
             <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
+            <?php if (isset($error)) {
+                echo "<script>alert({$error})</script>";
+            }elseif (isset($success)) {
+                echo "<script>alert({$success})</script>";
+            }
+            ?>
         </form>
         <form action="" method="post">
             <label for="first_name">First Name:</label> 
