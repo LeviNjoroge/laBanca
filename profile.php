@@ -37,7 +37,9 @@ if (isset($_POST["submit"])) {
 }
 
 if (isset($_POST["change_profile_pic"])) {
-    $file = $_FILE["profile_picture"];
+    $file = $_FILES["profile_picture"];
+    $file_extextension = strtolower(end(explode('.',$file['name'])));
+    $accepted_extenstions = 
 }
 ?>
 <!DOCTYPE html>
