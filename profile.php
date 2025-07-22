@@ -41,7 +41,17 @@ if (isset($_POST["change_profile_pic"])) {
     $file_extextension = strtolower(end(explode('.',$file['name'])));
     $accepted_extenstions = array('jpg', 'png', 'jpeg');
 
-    
+    if($file['error']){
+        $error = "There was an error apploading your file! Please try again later.";
+    } else{
+        if (!in_array($file_extextension, $accepted_extenstions)) {
+            $error = "Invalid file type!";
+        } else{
+            if ($file['size']) {
+                # code...
+            }
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
