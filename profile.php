@@ -47,8 +47,12 @@ if (isset($_POST["change_profile_pic"])) {
         if (!in_array($file_extextension, $accepted_extenstions)) {
             $error = "Invalid file type!";
         } else{
-            if ($file['size']) {
-                # code...
+            if ($file['size'] > 5*1000*1000) { // 5MB or less
+                $error = "File too large to upload!";
+            } else{
+                $current_file_location = $file['tmp_name'];
+                $new_file_name = $user_id .".". $file_extextension;
+                $new_file_location = "profile_picture_images/"
             }
         }
     }
