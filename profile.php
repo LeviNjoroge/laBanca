@@ -59,7 +59,7 @@ if (isset($_POST["change_profile_pic"])) {
                 try { // updating file name in dtb
                     $query_update_file_name = "UPDATE users SET profile_picture = '$new_file_name' WHERE id = '$user_id'";
                     mysqli_query($conn, $query_update_file_name);
-                    $success = "Image uploaded successfully! Login to see changes.";
+                    $success = "Image uploaded successfully!/nLogin to see changes.";
                 } catch (Exception $e) {
                     $error = "There was an error updating your file!";
                 }
@@ -69,100 +69,105 @@ if (isset($_POST["change_profile_pic"])) {
 }
 
 // update profile details
-// if (isset($_POST['submit_changes'])) {
-//     if (!empty($_POST['first_name'])) {
-//         try {
-//             $first_name = filter_input(INPUT_POST,'first_name',FILTER_SANITIZE_SPECIAL_CHARS);
-//             $query_update_first_name = "UPDATE users SET first_name = '$first_name' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_first_name);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['last_name'])) {
-//         try {
-//             $last_name = filter_input(INPUT_POST,'last_name',FILTER_SANITIZE_SPECIAL_CHARS);
-//             $query_update_last_name = "UPDATE users SET last_name = '$last_name' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_last_name);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['username'])) {
-//         try {
-//             $username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_SPECIAL_CHARS);
-//             $query_update_username = "UPDATE users SET username = '$username' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_username);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['date_of_birth'])) {
-//         try {
-//             $date_of_birth = $_POST['date_of_birth'];
-//             $query_update_date_of_birth = "UPDATE users SET date_of_birth = '$date_of_birth' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_date_of_birth);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['surname'])) {
-//         try {
-//             $surname = filter_input(INPUT_POST,'surname',FILTER_SANITIZE_SPECIAL_CHARS);
-//             $query_update_surname = "UPDATE users SET surname = '$surname' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_surname);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['id'])) {
-//         try {
-//             $id = $_POST['id'];
-//             $query_update_id = "UPDATE users SET national_id_no = '$id' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_id);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['email'])) {
-//         try {
-//             $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
-//             $query_update_email = "UPDATE users SET email_address = '$email' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_email);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['phone'])) {
-//         try {
-//             $phone = filter_input(INPUT_POST,'phone',FILTER_SANITIZE_SPECIAL_CHARS);
-//             $query_update_phone = "UPDATE users SET phone_number = '$phone' WHERE id = '$user_id'";
-//             mysqli_query($conn, $query_update_phone);
-//         } catch (Exception $e) {
-//             $error = "Unable to update profile!";
-//         }
-//     }
-//     if (!empty($_POST['password'])) {
-//         if ($_POST['password'] === $_POST['confirm_password']) {
-//             try {
-//                 $password = $_POST['password'];
-//                 $hash = password_hash($password, PASSWORD_DEFAULT);
-//                 $query_update_password = "UPDATE users SET password = '$hash' WHERE id = '$user_id'";
-//                 mysqli_query($conn, $query_update_password);
-//             } catch (Exception $e) {
-//                 $error = "Unable to update profile!";  
-//             }
-//         } else {
-//             $error = "Passwords dont match, couldn't update profile";
-//         }
+if (isset($_POST['submit_changes'])) {
+    if (!empty($_POST['first_name'])) {
+        try {
+            $first_name = filter_input(INPUT_POST,'first_name',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_first_name = "UPDATE users SET first_name = '$first_name' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_first_name);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['last_name'])) {
+        try {
+            $last_name = filter_input(INPUT_POST,'last_name',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_last_name = "UPDATE users SET last_name = '$last_name' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_last_name);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['username'])) {
+        try {
+            $username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_username = "UPDATE users SET username = '$username' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_username);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['date_of_birth'])) {
+        try {
+            $date_of_birth = $_POST['date_of_birth'];
+            $query_update_date_of_birth = "UPDATE users SET date_of_birth = '$date_of_birth' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_date_of_birth);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['surname'])) {
+        try {
+            $surname = filter_input(INPUT_POST,'surname',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_surname = "UPDATE users SET surname = '$surname' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_surname);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['id'])) {
+        try {
+            $id = $_POST['id'];
+            $query_update_id = "UPDATE users SET national_id_no = '$id' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_id);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['email'])) {
+        try {
+            $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
+            $query_update_email = "UPDATE users SET email_address = '$email' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_email);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['phone'])) {
+        try {
+            $phone = filter_input(INPUT_POST,'phone',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_phone = "UPDATE users SET phone_number = '$phone' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_phone);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (!empty($_POST['password'])) {
+        if ($_POST['password'] === $_POST['confirm_password']) {
+            try {
+                $password = $_POST['password'];
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $query_update_password = "UPDATE users SET password = '$hash' WHERE id = '$user_id'";
+                mysqli_query($conn, $query_update_password);
+            } catch (Exception $e) {
+                $error = "Unable to update profile!";  
+            }
+        } else {
+            $error = "Passwords dont match, couldn't update profile";
+        }
         
-//     }
-    
-// }
+    }
 
-if(isset($_POST['submit_changes'])){
-    update_user_profile($user_id);
+    // log message to user
+    if (isset($error)) {
+        $message = $error;
+    }
+    else {
+        $message = "Your has been updated successfully!/nLogin to view changes.";
+    }
+    echo "<script>alert('$message')</script>";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
