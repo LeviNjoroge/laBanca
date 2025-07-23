@@ -8,8 +8,9 @@ $user_id = $_SESSION['id'];
 $user_id_no = $_SESSION['id_no'];
 $user_surname = $_SESSION['surname'];
 $user_email = $_SESSION['email'];
+$user_date_of_birth = $_SESSION['date_of_birth'];
 $user_phone = $_SESSION['phone'];
-$user_profile_picture = $_SESSION['profile_picture'] || ".png";
+$user_profile_picture = $_SESSION['profile_picture'];
 
 // logout of account
 if (isset($_POST["logout"])) {
@@ -28,11 +29,11 @@ if (isset($_POST["delete_account"])) {
 }
 
 // show profile picture
-if(file_exists("profile_picture_images/".$user_profile_picture)){
-    $profile_picture = "profile_picture_images/".$user_profile_picture;
-    } else{
-    $profile_picture= "profile_picture_images/default.jpeg";
-} 
+// if(file_exists("profile_picture_images/".$user_profile_picture)){
+//     $profile_picture = "profile_picture_images/".$user_profile_picture;
+//     } else{
+//     $profile_picture= "profile_picture_images/default.jpeg";
+// } 
 
 // change profile picture
 if (isset($_POST["change_profile_pic"])) {
@@ -69,7 +70,7 @@ if (isset($_POST["change_profile_pic"])) {
 
 // update profile details
 if (isset($_POST['submit_changes'])) {
-    if (isset($_POST['first_name'])) {
+    if (!empty($_POST['first_name'])) {
         try {
             $first_name = filter_input(INPUT_POST,'first_name',FILTER_SANITIZE_SPECIAL_CHARS);
             $query_update_first_name = "UPDATE users SET first_name = '$first_name' WHERE id = '$user_id'";
@@ -78,7 +79,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['last_name'])) {
+    if (!empty($_POST['last_name'])) {
         try {
             $last_name = filter_input(INPUT_POST,'last_name',FILTER_SANITIZE_SPECIAL_CHARS);
             $query_update_last_name = "UPDATE users SET last_name = '$last_name' WHERE id = '$user_id'";
@@ -87,7 +88,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['username'])) {
+    if (!empty($_POST['username'])) {
         try {
             $username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_SPECIAL_CHARS);
             $query_update_username = "UPDATE users SET username = '$username' WHERE id = '$user_id'";
@@ -96,7 +97,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['date_of_birth'])) {
+    if (!empty($_POST['date_of_birth'])) {
         try {
             $date_of_birth = $_POST['date_of_birth'];
             $query_update_date_of_birth = "UPDATE users SET date_of_birth = '$date_of_birth' WHERE id = '$user_id'";
@@ -105,7 +106,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['surname'])) {
+    if (!empty($_POST['surname'])) {
         try {
             $surname = filter_input(INPUT_POST,'surname',FILTER_SANITIZE_SPECIAL_CHARS);
             $query_update_surname = "UPDATE users SET surname = '$surname' WHERE id = '$user_id'";
@@ -114,7 +115,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['id'])) {
+    if (!empty($_POST['id'])) {
         try {
             $id = $_POST['id'];
             $query_update_id = "UPDATE users SET national_id_no = '$id' WHERE id = '$user_id'";
@@ -123,7 +124,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['email'])) {
+    if (!empty($_POST['email'])) {
         try {
             $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
             $query_update_email = "UPDATE users SET email_address = '$email' WHERE id = '$user_id'";
@@ -132,7 +133,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['phone'])) {
+    if (!empty($_POST['phone'])) {
         try {
             $phone = filter_input(INPUT_POST,'phone',FILTER_SANITIZE_SPECIAL_CHARS);
             $query_update_phone = "UPDATE users SET phone_number = '$phone' WHERE id = '$user_id'";
@@ -141,7 +142,7 @@ if (isset($_POST['submit_changes'])) {
             $error = "Unable to update profile!";
         }
     }
-    if (isset($_POST['password'])) {
+    if (!empty($_POST['password'])) {
         if ($_POST['password'] == $_POST['confirm_password']) {
             try {
                 $password = $_POST['password'];
@@ -172,7 +173,7 @@ if (isset($_POST['submit_changes'])) {
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
     <form action="" method="post" enctype="multipart/form-data">
-        <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
+        <img src="<?php echo "profile_picture_images/".$user_profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
         <label for="profile_picture">Change/Add Profile Picture: </label> 
         <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
         <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
@@ -195,7 +196,7 @@ if (isset($_POST['submit_changes'])) {
         <input type="text" name="surname" id="surname" placeholder="<?php echo $user_surname?>"> <br><hr>
 
         <label for="date_of_birth">Date of Birth:</label> 
-        <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>"> <br>
+        <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>" style="width:auto;"> <br>
 
         <label for="id">National ID No.:</label> 
         <input type="number" name="id" id="id" placeholder="<?php echo $user_id_no?>"> <br> <hr>

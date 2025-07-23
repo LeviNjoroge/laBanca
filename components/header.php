@@ -6,12 +6,12 @@ if (empty($_SESSION['id'])) {
 }
 $user_profile_picture = $_SESSION['profile_picture'];
 
-if(file_exists("profile_picture_images/".$user_profile_picture)){
-    $profile_picture = "profile_picture_images/".$user_profile_picture;
-}
-else{
-    $profile_picture= "profile_picture_images/default.jpeg";
-} 
+// if(file_exists("profile_picture_images/".$user_profile_picture)){
+//     $profile_picture = "profile_picture_images/".$user_profile_picture;
+//     }
+//     else{
+//         $profile_picture= "profile_picture_images/default.jpeg";
+//     } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +57,7 @@ else{
 <body>
     <header>
         <nav>
-            <a href="/profile.php" id="nav-profile"><img src="<?php echo $profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
+            <a href="/profile.php" id="nav-profile"><img src="<?php echo "profile_picture_images/".$user_profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
             <a href="/index.php" id="nav-links">Home</a>
             <a href="/transfer.php" id="nav-links">Money Transfer</a>
             <a href="/contact.php" id="nav-links">Contact Us</a>

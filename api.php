@@ -16,4 +16,29 @@ function check_balance($id){
         return 0;
     }
 }
+
+function update_user_profile($user_id){
+    while (true) {
+        $new_users_values = array(
+            "first_name" => "first_name",
+            "last_name" => "last_name",
+            "surname" => "surname",
+            "username" => "username",
+            "date_of_birth" => "date_of_birth",
+            "national_id_no" => "national_id_no",
+            "email_address" => "email_address",
+            "phone_number" => "phone_number",
+            "password" => "password"
+        );
+        if (!empty($_POST[$new_users_values['key']])) {
+            try {
+                $query_update_values = "UPDATE users SET {$new_users_values['key']} = 'filter_input(INPUT_POST,'{$new_users_values['value']}',FILTER_SANITIZE_SPECIAL_CHARS)' WHERE id = '$user_id'";
+                mysqli_query($GLOBALS['conn'], $query_update_values);
+            } catch (Exception $e) {
+                $error = "Unable to update profile!";
+            }
+        }
+    }
+
+}
 ?>
