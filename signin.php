@@ -18,6 +18,7 @@ if(isset($_POST["signin"])){
         $_SESSION['first_name'] = $user["first_name"];
         $_SESSION['last_name'] = $user["last_name"];
         $_SESSION['id'] = $user["id"];
+        $_SESSION['id_no'] = $user["id_no"];
         $_SESSION['surname'] = $user["surname"];
         $_SESSION['email'] = $user["email"];
         $_SESSION['phone'] = $user["phone"];

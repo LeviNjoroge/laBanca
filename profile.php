@@ -5,10 +5,11 @@ $user_username = $_SESSION['username'];
 $user_first_name = $_SESSION['first_name'];
 $user_last_name = $_SESSION['last_name'];
 $user_id = $_SESSION['id'];
+$user_id_no = $_SESSION['id_no'];
 $user_surname = $_SESSION['surname'];
 $user_email = $_SESSION['email'];
 $user_phone = $_SESSION['phone'];
-$user_profile_picture = $_SESSION['profile_picture'];
+$user_profile_picture = $_SESSION['profile_picture'] || ".png";
 
 // logout of account
 if (isset($_POST["logout"])) {
@@ -29,7 +30,7 @@ if (isset($_POST["delete_account"])) {
 // show profile picture
 if(file_exists("profile_picture_images/".$user_profile_picture)){
     $profile_picture = "profile_picture_images/".$user_profile_picture;
-} else{
+    } else{
     $profile_picture= "profile_picture_images/default.jpeg";
 } 
 
@@ -65,6 +66,98 @@ if (isset($_POST["change_profile_pic"])) {
         }
     }
 }
+
+// update profile details
+if (isset($_POST['submit_changes'])) {
+    if (isset($_POST['first_name'])) {
+        try {
+            $first_name = filter_input(INPUT_POST,'first_name',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_first_name = "UPDATE users SET first_name = '$first_name' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_first_name);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['last_name'])) {
+        try {
+            $last_name = filter_input(INPUT_POST,'last_name',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_last_name = "UPDATE users SET last_name = '$last_name' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_last_name);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['username'])) {
+        try {
+            $username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_username = "UPDATE users SET username = '$username' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_username);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['date_of_birth'])) {
+        try {
+            $date_of_birth = $_POST['date_of_birth'];
+            $query_update_date_of_birth = "UPDATE users SET date_of_birth = '$date_of_birth' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_date_of_birth);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['surname'])) {
+        try {
+            $surname = filter_input(INPUT_POST,'surname',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_surname = "UPDATE users SET surname = '$surname' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_surname);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['id'])) {
+        try {
+            $id = $_POST['id'];
+            $query_update_id = "UPDATE users SET national_id_no = '$id' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_id);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['email'])) {
+        try {
+            $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
+            $query_update_email = "UPDATE users SET email_address = '$email' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_email);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['phone'])) {
+        try {
+            $phone = filter_input(INPUT_POST,'phone',FILTER_SANITIZE_SPECIAL_CHARS);
+            $query_update_phone = "UPDATE users SET phone_number = '$phone' WHERE id = '$user_id'";
+            mysqli_query($conn, $query_update_phone);
+        } catch (Exception $e) {
+            $error = "Unable to update profile!";
+        }
+    }
+    if (isset($_POST['password'])) {
+        if ($_POST['password'] == $_POST['confirm_password']) {
+            try {
+                $password = $_POST['password'];
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $query_update_password = "UPDATE users SET password = '$hash' WHERE id = '$user_id'";
+                mysqli_query($conn, $query_update_password);
+            } catch (Exception $e) {
+                $error = "Unable to update profile!";  
+            }
+        } else {
+            $error = "Passwords dont match, couldn't update profile";
+        }
+        
+    }
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,54 +171,57 @@ if (isset($_POST["change_profile_pic"])) {
 <!--Change details-->
 <div class="change_details">
     <h3>Edit Personal Information:</h3>
-        <form action="" method="post" enctype="multipart/form-data">
-            <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
-            <label for="profile_picture">Change/Add Profile Picture: </label> 
-            <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
-            <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
-            <?php if (isset($error)) {
-                echo "<script>alert('{$error}')</script>";
-            }elseif (isset($success)) {
-                echo "<script>alert('{$success}')</script>";
-            }
-            ?>
-        </form>
-        <form action="" method="post">
-            <label for="first_name">First Name:</label> 
-            <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
+    <form action="" method="post" enctype="multipart/form-data">
+        <img src="<?php echo $profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
+        <label for="profile_picture">Change/Add Profile Picture: </label> 
+        <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
+        <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
+        <?php if (isset($error)) {
+            echo "<script>alert('{$error}')</script>";
+        }elseif (isset($success)) {
+            echo "<script>alert('{$success}')</script>";
+        }
+        ?>
+    </form>
 
-            <label for="last_name">Last Name:</label> 
-            <input type="text" name="last_name" id="last_name" placeholder="<?php echo $user_last_name?>"> <br>  
+    <form action="" method="post">
+        <label for="first_name">First Name:</label> 
+        <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
-            <label for="surname">Surname:</label>
-            <input type="text" name="surname" id="surname" placeholder="<?php echo $user_surname?>"> <br><hr>
+        <label for="last_name">Last Name:</label> 
+        <input type="text" name="last_name" id="last_name" placeholder="<?php echo $user_last_name?>"> <br>  
 
-            <label for="date_of_birth">Date of Birth:</label> 
-            <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>"> <br>
+        <label for="surname">Surname:</label>
+        <input type="text" name="surname" id="surname" placeholder="<?php echo $user_surname?>"> <br><hr>
 
-            <label for="id">National ID No.:</label> 
-            <input type="number" name="id" id="id" placeholder="<?php echo $user_id?>"> <br> <hr>
+        <label for="date_of_birth">Date of Birth:</label> 
+        <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>"> <br>
 
-            <label for="username">Username:</label> 
-            <input type="text" name="username" id="username" placeholder="<?php echo $user_username?>"> <br>
+        <label for="id">National ID No.:</label> 
+        <input type="number" name="id" id="id" placeholder="<?php echo $user_id_no?>"> <br> <hr>
 
-            <label for="email">Email Address:</label> 
-            <input type="email" name="email" id="email" placeholder="<?php echo $user_email?>"> <br>
+        <label for="username">Username:</label> 
+        <input type="text" name="username" id="username" placeholder="<?php echo $user_username?>"> <br>
 
-            <label for="phone">Phone Number:</label> 
-            <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_phone?>"> <br>
+        <label for="email">Email Address:</label> 
+        <input type="email" name="email" id="email" placeholder="<?php echo $user_email?>"> <br>
 
-            <label for="password">Password:</label> 
-            <input type="password" name="password" id="password"> <br>
+        <label for="phone">Phone Number:</label> 
+        <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_phone?>"> <br>
 
-            <label for="password">Confirm Password:</label> 
-            <input type="password" name="password" id="password"> <br>
+        <label for="password">Password:</label> 
+        <input type="password" name="password" id="password"> <br>
 
-            <input type="submit" value="Save Changes" id="submit"> <br><hr>
-        </form>
+        <label for="password">Confirm Password:</label> 
+        <input type="password" name="confirm_password" id="confirm_password"> <br>
+
+        <input type="submit" value="Save Changes" id="submit" name="submit_changes"> <br><hr>
+    </form>
 </div>
+
 <!--Delete account-->
     <form action="" method="post"><input type="submit" value="Delete Account!" name="delete_account" id="logout"></form><hr>
+
 <!--Logout button-->
     <form action="" method="post"><input type="submit" value="logout!" name="logout" id="logout"></form><hr>
 </body>
