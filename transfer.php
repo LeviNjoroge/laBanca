@@ -25,6 +25,8 @@ if (isset($_POST['deposit_cash'])) {
         <input type="number" name="deposit" id="deposit">
         <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
     </form>
+
+    
 </body>
 </html>
 <?php

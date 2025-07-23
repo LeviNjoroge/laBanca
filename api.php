@@ -34,8 +34,17 @@ function deposit_cash($user_id, $amount){
 // user can transfer cash to another user
 function transfer_cash($from, $to, $amount){
     try {
-        
+        $query_transfer_cash = "
+                                UPDATE users SET amount = amount - {$amount} WHERE id = {$from};
+                                UPDATE users SET amount = amount + {$amount} WHERE id = {$to};
+                                ";
+        mysqli_query($GLOBALS['conn'], $query_transfer_cash);
+
+        $query_update_transfer = "INSERT INTO transactions(user_id, message) VALUES('{$from}','TRANSFERED \${$amount} TO {$to}')";
+        mysqli_query($GLOBALS['conn'], $query_update_transfer);
+
+        echo "<script>alert('{$amount} SUCCESSFULLY TRANSFERED TO USER_{$to}')</script>";
     } catch (Exception $e) {
-        echo "<script>alert('Was unable to deposit you money:(')</script>";
+        echo "<script>alert('Was unable to transfer {$amount} to user_{$to}:(')</script>";
     }
 }
