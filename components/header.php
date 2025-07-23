@@ -24,16 +24,18 @@ $user_profile_picture = $_SESSION['profile_picture'];
             background-color: rgba(204, 203, 203, 1);
         }
         nav{
-            padding: 10px;
+            padding: 5px;
+            top: 0px;
         }
 
         #nav-links{
+            vertical-align: middle;
+            top: 0px;
             margin-right: 10%;
             color: rgb(43, 43, 43);
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-
         }
 
         #nav-links:active{
@@ -41,10 +43,14 @@ $user_profile_picture = $_SESSION['profile_picture'];
             color:rgb(145, 145, 145)
         }
 
-        #img_profile_pic{
-            height: 20px;
+        #img_profile_pic {
+            height: 60px;
             border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 5px;
+            
         }
+
 
         #nav-profile{
             margin-right: 12%;

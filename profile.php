@@ -59,7 +59,7 @@ if (isset($_POST["change_profile_pic"])) {
                 try { // updating file name in dtb
                     $query_update_file_name = "UPDATE users SET profile_picture = '$new_file_name' WHERE id = '$user_id'";
                     mysqli_query($conn, $query_update_file_name);
-                    $success = "Image uploaded successfully!/nLogin to see changes.";
+                    $success = "Image uploaded successfully!\nLogin to see changes.";
                 } catch (Exception $e) {
                     $error = "There was an error updating your file!";
                 }
@@ -161,11 +161,10 @@ if (isset($_POST['submit_changes'])) {
     // log message to user
     if (isset($error)) {
         $message = $error;
+    } else {
+        $message = "Your profile has been updated successfully!\nLogin to view changes.";
     }
-    else {
-        $message = "Your has been updated successfully!/nLogin to view changes.";
-    }
-    echo "<script>alert('$message')</script>";
+    echo "<script>alert(" . json_encode($message) . ");</script>";
 }
 
 ?>
@@ -176,6 +175,11 @@ if (isset($_POST['submit_changes'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBanca: Profile</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        input{
+            width:auto;
+        }
+        </style>
 </head>
 <body>
 <!--Change details-->
@@ -189,7 +193,7 @@ if (isset($_POST['submit_changes'])) {
         <?php if (isset($error)) {
             echo "<script>alert('{$error}')</script>";
         }elseif (isset($success)) {
-            echo "<script>alert('{$success}')</script>";
+            echo "<script>alert(" . json_encode($success) . ")</script>";
         }
         ?>
     </form>
