@@ -10,9 +10,9 @@ function check_balance($id){
 
     if (mysqli_num_rows($result)>0) {
         $row = mysqli_fetch_assoc($result);
-        return $row["balance"];
+        return $row["balance"] ?? 0;
     }
     else{
-        return 0;
+        return "0.00";
     }
 }

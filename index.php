@@ -20,7 +20,7 @@ $last_name= $_SESSION['last_name'];
 </head>
 <body>
     <h1>Hi <?php echo $first_name?>!</h1>
-
+    <h3>Your balance is: <?php check_balance($_SESSION['id'])?></h3>
 </body>
 </html>
 <?php
