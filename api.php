@@ -27,7 +27,7 @@ function deposit_cash($user_id, $amount){
 
         echo "<script>alert('You have successfully deposited \${$amount}')</script>";
     } catch (Exception $e) {
-        echo "<script>alert('Was unable to deposit you money:(')</script>";
+        echo "<script>alert('Was unable to deposit your money:(')</script>";
     }
 }
 
@@ -35,7 +35,7 @@ function deposit_cash($user_id, $amount){
 function transfer_cash($from, $to, $amount){
     try {
         
-    } catch (\Throwable $th) {
-        //throw $th;
+    } catch (Exception $e) {
+        echo "<script>alert('Was unable to deposit you money:(')</script>";
     }
 }
