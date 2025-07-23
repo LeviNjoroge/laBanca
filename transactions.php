@@ -8,6 +8,18 @@ if (isset($_POST['deposit_cash'])) {
     $deposit_amount = filter_input(INPUT_POST, 'deposit', FILTER_VALIDATE_INT);
     deposit_cash($_SESSION['id'], $deposit_amount);
 }
+
+if (isset($_POST['withdraw_cash'])) {
+    $withdrawal_amount = filter_input(INPUT_POST, 'withdraw', FILTER_VALIDATE_INT);
+    withdraw_cash($_SESSION['id'], $withdrawal_amount);
+}
+
+if (isset($_POST['transfer_cash'])) {
+    $recipient = filter_input(INPUT_POST, 'to', FILTER_VALIDATE_INT);
+    $transfer_amount = filter_input(INPUT_POST, 'transfer', FILTER_VALIDATE_INT);
+    transfer_cash($_SESSION['id'],$recipient, $transfer_amount);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +51,7 @@ if (isset($_POST['deposit_cash'])) {
         <input type="number" name="to" id="to"> <br>
         <label for="amount">Enter amount to Transfer: </label>
         <input type="number" name="transfer" id="transfer"> <br>
-        <input type="submit" value="transfer Cash" name="transfer_cash" id="cash"> <br>
+        <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash"> <br>
     </form>
     <hr>
     
