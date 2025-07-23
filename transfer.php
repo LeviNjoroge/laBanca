@@ -3,6 +3,11 @@ include("components/header.php");
 $user_email = $_SESSION["email"];
 $user_phone = $_SESSION["phone"];
 $balance = $_SESSION["balance"];
+
+if (isset($_POST['deposit_cash'])) {
+    $deposit_amount = filter_input(INPUT_POST, 'deposit', FILTER_VALIDATE_INT);
+    deposit_cash($_SESSION['id'], $deposit_amount);
+}
 ?>
 
 <!DOCTYPE html>
