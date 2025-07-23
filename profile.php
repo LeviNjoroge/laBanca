@@ -175,11 +175,6 @@ if (isset($_POST['submit_changes'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBanca: Profile</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        input{
-            width:auto;
-        }
-        </style>
 </head>
 <body>
 <!--Change details-->
@@ -198,7 +193,7 @@ if (isset($_POST['submit_changes'])) {
         ?>
     </form>
 
-    <form action="" method="post">
+    <form action="" method="post" style="input{width:auto;}">
         <label for="first_name">First Name:</label> 
         <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
