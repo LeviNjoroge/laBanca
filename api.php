@@ -34,18 +34,29 @@ function deposit_cash($user_id, $amount){
 // user can transfer cash to another user
 function transfer_cash($from, $to, $amount){
     try {
-        $query_transfer_cash = "
-                                UPDATE users SET amount = amount - {$amount} WHERE id = {$from};
-                                UPDATE users SET amount = amount + {$amount} WHERE id = {$to};
-                                ";
-        mysqli_query($GLOBALS['conn'], $query_transfer_cash);
+        // first, ensure that the recepient exists
+        $users = mysqli_query($GLOBALS['conn'], "SELECT id FROM users");
+        $users = mysqli_fetch_assoc($users);
+        if (in_array($to,$users)) {
+            $query_transfer_cash = "
+                                    UPDATE users SET balance = balance - {$amount} WHERE id = {$from};
+                                    UPDATE users SET balance = balance + {$amount} WHERE id = {$to};
+                                    
+                                    INSERT INTO transactions(user_id, message) VALUES('{$from}','TRANSFERED \${$amount} TO USER_{$to}');
+                                    INSERT INTO transactions(user_id, message) VALUES('{$to}','RECEIVED \${$amount} FROM USER_{$from}');
+                                    ";
+            mysqli_multi_query($GLOBALS['conn'], $query_transfer_cash);
 
-        $query_update_transfer = "INSERT INTO transactions(user_id, message) VALUES('{$from}','TRANSFERED \${$amount} TO {$to}')";
-        mysqli_query($GLOBALS['conn'], $query_update_transfer);
+            echo "<script>alert('\${$amount} SUCCESSFULLY TRANSFERED TO USER_{$to}')</script>";
+        } else {
+            echo "<script>alert('COULD NOT TRANSFER! RECEPIENT NOT FOUND!')</script>";
 
-        echo "<script>alert('{$amount} SUCCESSFULLY TRANSFERED TO USER_{$to}')</script>";
+        }
+
+        
     } catch (Exception $e) {
         echo "<script>alert('Was unable to transfer {$amount} to user_{$to}:(')</script>";
+        throw $e;
     }
 }
 
