@@ -29,11 +29,11 @@ if (isset($_POST["delete_account"])) {
 }
 
 // show profile picture
-if(file_exists("profile_picture_images/".$user_profile_picture)){
-    $profile_picture = "profile_picture_images/".$user_profile_picture;
-    } else{
-    $profile_picture= "profile_picture_images/default.jpeg";
-} 
+// if(file_exists("profile_picture_images/".$user_profile_picture)){
+//     $profile_picture = "profile_picture_images/".$user_profile_picture;
+//     } else{
+//     $profile_picture= "profile_picture_images/default.jpeg";
+// } 
 
 // change profile picture
 if (isset($_POST["change_profile_pic"])) {
