@@ -25,7 +25,24 @@ if (isset($_POST['deposit_cash'])) {
         <input type="number" name="deposit" id="deposit">
         <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
     </form>
-
+    <hr>
+    <!--Withdraw Cash-->
+    <form action="" method="post">
+        <label for="amount">Enter amount to withdraw: </label>
+        <input type="number" name="withdraw" id="withdraw">
+        <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash"> <br>
+    </form>
+    <hr>
+    <!--Transfer Cash-->
+    <form action="" method="post">
+        <label for="to">Enter user_id of the recipient: </label>
+        <input type="number" name="to" id="to"> <br>
+        <label for="amount">Enter amount to Transfer: </label>
+        <input type="number" name="transfer" id="transfer"> <br>
+        <input type="submit" value="transfer Cash" name="transfer_cash" id="cash"> <br>
+    </form>
+    <hr>
+    
     
 </body>
 </html>

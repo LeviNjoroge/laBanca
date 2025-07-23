@@ -25,7 +25,7 @@ function deposit_cash($user_id, $amount){
         $query_record_deposit = "INSERT INTO transactions(user_id, message) VALUES('{$user_id}','DEPOSITED \${$amount}')";
         mysqli_query($GLOBALS['conn'], $query_record_deposit);
 
-        echo "<script>alert('You have successfully deposited \${$amount}')</script>";
+        echo "<script>alert('\${$amount} SUCCESSFULLY DEPOSITED')</script>";
     } catch (Exception $e) {
         echo "<script>alert('Was unable to deposit your money:(')</script>";
     }
@@ -50,8 +50,15 @@ function transfer_cash($from, $to, $amount){
 }
 
 function withdraw_cash($user_id, $amount){
-    $query_withdraw_cash = "UPDATE users SET balance = balance - {$amount} WHERE id = {$user_id}";
-    mysqli_query($GLOBALS['conn'], $query_withdraw_cash);
+    try {
+        $query_withdraw_cash = "UPDATE users SET balance = balance - {$amount} WHERE id = {$user_id}";
+        mysqli_query($GLOBALS['conn'], $query_withdraw_cash);
 
-    $query_record_withdrawal = "INSERT INTO transactions(user_id, message) VALUES('$user_id','WITHDRAWAL OF \${$amount} WAS SUCCESSFUL')";
+        $query_record_withdrawal = "INSERT INTO transactions(user_id, message) VALUES('$user_id','WITHDRAWAL OF \${$amount} WAS SUCCESSFUL')";
+        mysqli_query($GLOBALS['conn'], $query_record_withdrawal);
+
+        echo "<script>alert('\${$amount} SUCCESSFULLY WITHDRAWN!')</script>";
+    } catch (Exception $e) {
+        echo "<script>alert('Was unable to withdraw \${$amount}:(')</script>";
+    }
 }
