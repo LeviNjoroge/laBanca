@@ -48,3 +48,10 @@ function transfer_cash($from, $to, $amount){
         echo "<script>alert('Was unable to transfer {$amount} to user_{$to}:(')</script>";
     }
 }
+
+function withdraw_cash($user_id, $amount){
+    $query_withdraw_cash = "UPDATE users SET balance = balance - {$amount} WHERE id = {$user_id}";
+    mysqli_query($GLOBALS['conn'], $query_withdraw_cash);
+
+    $query_record_withdrawal = 
+}
