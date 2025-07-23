@@ -16,7 +16,7 @@ $balance = $_SESSION["balance"];
 <body>
     <!--Deposit Cash-->
     <form action="" method="post">
-        
+        <input type="submit" value="Deposit Cash" name="deposit_cash"> <br>
     </form>
 </body>
 </html>
