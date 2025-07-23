@@ -20,7 +20,10 @@ $last_name= $_SESSION['last_name'];
 </head>
 <body>
     <h1>Hi <?php echo $first_name?>!</h1>
-    <h3>Your balance is: <?php echo check_balance($_SESSION['id'])?></h3>
+    <div class="acc_summary">
+        <h2>Here is a summary of your account...</h2>
+        <h3 title="if not updated, please log in again!">Your current balance is: <?php echo check_balance($_SESSION['id'])?></h3>
+    </div>
 </body>
 </html>
 <?php
