@@ -5,7 +5,7 @@ include("database.php");
 
 function check_balance($id){
 
-    $sql_check_balance = "SELECT balance FROM users WHERE user_id = {$id}";
+    $sql_check_balance = "SELECT balance FROM users WHERE id = {$id}";
     $result = mysqli_query($GLOBALS["conn"], $sql_check_balance);
 
     if (mysqli_num_rows($result)>0) {
