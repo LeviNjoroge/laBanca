@@ -67,5 +67,32 @@ hr{
 }
 
 .display_transactions{
-    
+    width: 80%;
+    border: 1px solid gray;
+    padding: 2px;
+    border-radius: 5px;
+
+    thead {
+        background-color: rgb(225, 225, 225);
+    }
+
+    tbody tr {
+        background-color: rgb(241, 241, 241);
+        }
+
+    tbody tr:nth-of-type(even) {
+        background-color: rgba(241, 241, 241, 0);
+    }
+
+    td{
+        padding: 5px;
+    }
+
+    th{
+        text-align: left;
+        padding: 7px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bolder;
+        font-size: larger;
+    }
 }
