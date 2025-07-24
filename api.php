@@ -65,7 +65,7 @@ function withdraw_cash($user_id, $amount){
         $query_withdraw_cash = "UPDATE users SET balance = balance - {$amount} WHERE id = {$user_id}";
         mysqli_query($GLOBALS['conn'], $query_withdraw_cash);
 
-        $query_record_withdrawal = "INSERT INTO transactions(user_id, message) VALUES('$user_id','WITHDRAWAL OF \${$amount} WAS SUCCESSFUL')";
+        $query_record_withdrawal = "INSERT INTO transactions(user_id, message) VALUES('$user_id','WITHDREW \${$amount}')";
         mysqli_query($GLOBALS['conn'], $query_record_withdrawal);
 
         echo "<script>alert('\${$amount} SUCCESSFULLY WITHDRAWN!')</script>";
