@@ -26,7 +26,7 @@ $last_name= $_SESSION['last_name'];
             Your current balance is: <?php echo number_format(check_balance($_SESSION['id']),2); ?>
         </p>
         <!-- <h3 style="border-bottom: 2px solid gray;">Here are your recent transactions:</h3> -->
-        <table class="display_transactions" >
+        <table class="display_transactions" border="1px">
             <thead>
                 <tr>
                     <th colspan="3" style="text-align:center">RECENT TRANSACTIONS</th>
@@ -40,7 +40,7 @@ $last_name= $_SESSION['last_name'];
             </thead>
             <tbody>
                     <?php
-                        $query_get_transactions = "SELECT * FROM transactions WHERE user_id = {$_SESSION['id']} ORDER BY time DESC";
+                        $query_get_transactions = "SELECT * FROM transactions WHERE user_id = {$_SESSION['id']} ORDER BY time DESC LIMIT 25";
                         $results = mysqli_query($conn, $query_get_transactions);
                         if (mysqli_num_rows($results) > 0) {
                             while($transaction = mysqli_fetch_assoc($results)){

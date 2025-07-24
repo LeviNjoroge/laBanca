@@ -67,6 +67,7 @@ hr{
 }
 
 .display_transactions{
+    margin-left: 10%;
     width: 80%;
     border: 1px solid gray;
     padding: 2px;
@@ -86,9 +87,11 @@ hr{
 
     td{
         padding: 5px;
+        border-radius: 2px;
     }
 
     th{
+        border-radius: 2px;
         text-align: left;
         padding: 7px;
         font-family: 'Courier New', Courier, monospace;
