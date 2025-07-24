@@ -41,7 +41,7 @@ function transfer_cash($from, $to, $amount){
             $query_transfer_cash = "
                                     UPDATE users SET balance = balance - {$amount} WHERE id = {$from};
                                     UPDATE users SET balance = balance + {$amount} WHERE id = {$to};
-                                    
+
                                     INSERT INTO transactions(user_id, message) VALUES('{$from}','TRANSFERED \${$amount} TO USER_{$to}');
                                     INSERT INTO transactions(user_id, message) VALUES('{$to}','RECEIVED \${$amount} FROM USER_{$from}');
                                     ";
