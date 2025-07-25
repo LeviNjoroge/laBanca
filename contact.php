@@ -15,7 +15,7 @@ include("api.php");
 </head>
 <body>
     <div class="contact-form">
-        <textarea name="message" id="message" placeholder="Leave a message here and we'll look into "></textarea>
+        <textarea name="message" id="message" placeholder=""></textarea>
     </div>
 </body>
 </html>
