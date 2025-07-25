@@ -15,7 +15,7 @@ include("api.php");
 </head>
 <body>
     <div class="contact-form">
-        <label for="message">Leave a review, comment, or query and w</label>
+        <label for="message">Leave a review, comment, or query:</label>
         <textarea name="message" id="message" placeholder="Write your message here..."></textarea>
     </div>
 </body>
