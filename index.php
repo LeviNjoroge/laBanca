@@ -45,7 +45,7 @@ $last_name= $_SESSION['last_name'];
                         if (mysqli_num_rows($results) > 0) {
                             while($transaction = mysqli_fetch_assoc($results)){
                                 echo "<tr>";
-                                echo "<td>TRANSACTION_{$transaction['transaction_id']}</td>";
+                                echo "<td>TX_{$transaction['transaction_id']}</td>";
                                 echo "<td>{$transaction['time']}</td>";
                                 echo "<td>{$transaction['message']}</td>";
                                 // echo "<td>transaction['balance']</td>";
