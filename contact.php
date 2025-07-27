@@ -2,7 +2,6 @@
 include("components/header.php");
 $user_email = $_SESSION["email"];
 $user_phone = $_SESSION["phone"];
-include("api.php");
 ?>
 
 <!DOCTYPE html>
