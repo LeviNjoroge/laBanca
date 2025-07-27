@@ -17,9 +17,6 @@ $user_phone = $_SESSION["phone"];
         <label for="message">Leave a review, comment, or query:</label> <br>
         <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
         <input type="submit" value="submit" name="submit-comment"> <br>
-    </div>
-</body>
-</html>
 <?php
 include("components/footer.php");
 ?>
