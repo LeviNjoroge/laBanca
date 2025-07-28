@@ -98,3 +98,13 @@ hr{
         font-size: larger;
     }
 }
+
+.contact-form{
+    margin-left: 20%;
+    margin-top: 1%;
+    height: 80%;
+    width: 60%;
+    border-radius: 5px;
+    padding-left:20px;
+    padding-bottom:10px;
+}
