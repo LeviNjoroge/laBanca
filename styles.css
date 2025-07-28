@@ -124,16 +124,15 @@ hr{
 }
 
 .transactions{
-    margin-left: 10%;
-    width: 80%;
-    border: 1px solid gray;
-    padding: 2px;
-    border-radius: 5px;
 
     .transaction-form{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border: 1px solid rgba(128, 128, 128, 0.057);
-        border-radius: 5px;
+        #cash{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgb(128, 128, 128);
+            padding: 5px;
+            
+            border-radius: 5px;
+        }
     }
 }
