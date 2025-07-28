@@ -11,8 +11,8 @@ include("components/header.php");
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h2>Contact Us</h2>
     <div class="contact-form">
-        <h2>Contact Us</h2>
         <label for="message">Leave a review, comment, or query:</label> <br>
         <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
         <input type="submit" value="submit" name="submit-comment"> <br>
