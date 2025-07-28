@@ -54,8 +54,6 @@ if (isset($_POST['transfer_cash'])) {
         <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash"> <br>
     </form>
     <hr>
-    
-    
 </body>
 </html>
 <?php
