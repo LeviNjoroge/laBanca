@@ -31,29 +31,31 @@ if (isset($_POST['transfer_cash'])) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!--Deposit Cash-->
-    <form action="" method="post">
-        <label for="amount">Enter amount to deposit: </label>
-        <input type="number" name="deposit" id="deposit">
-        <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
-    </form>
-    <hr>
-    <!--Withdraw Cash-->
-    <form action="" method="post">
-        <label for="amount">Enter amount to withdraw: </label>
-        <input type="number" name="withdraw" id="withdraw">
-        <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash"> <br>
-    </form>
-    <hr>
-    <!--Transfer Cash-->
-    <form action="" method="post">
-        <label for="to">Enter user_id of the recipient: </label>
-        <input type="number" name="to" id="to"> <br>
-        <label for="amount">Enter amount to Transfer: </label>
-        <input type="number" name="transfer" id="transfer"> <br>
-        <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash"> <br>
-    </form>
-    <hr>
+    <div class="transactions">
+        <!--Deposit Cash-->
+        <form action="" method="post">
+            <label for="amount">Enter amount to deposit: </label>
+            <input type="number" name="deposit" id="deposit">
+            <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
+        </form>
+        <hr>
+        <!--Withdraw Cash-->
+        <form action="" method="post">
+            <label for="amount">Enter amount to withdraw: </label>
+            <input type="number" name="withdraw" id="withdraw">
+            <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash"> <br>
+        </form>
+        <hr>
+        <!--Transfer Cash-->
+        <form action="" method="post">
+            <label for="to">Enter user_id of the recipient: </label>
+            <input type="number" name="to" id="to"> <br>
+            <label for="amount">Enter amount to Transfer: </label>
+            <input type="number" name="transfer" id="transfer"> <br>
+            <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash"> <br>
+        </form>
+        <hr>
+    </div>
 </body>
 </html>
 <?php
