@@ -17,6 +17,7 @@ include("components/header.php");
         <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
         <input type="submit" value="Submit" name="submit-comment" class="submit-comment"> <br>
     </div>
+    <div class="display_contacts"></div>
 <?php
 include("components/footer.php");
 ?>
