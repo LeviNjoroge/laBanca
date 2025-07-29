@@ -27,6 +27,7 @@ $user_profile_picture = $_SESSION['profile_picture'];
         }
         header{
             background-color: rgba(204, 203, 203, 1);
+            border-bottom: 1px solid gray;
         }
         nav{
             padding: 5px;
