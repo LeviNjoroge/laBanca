@@ -11,18 +11,21 @@ include("components/header.php");
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2 style="font-size: 2rem;">Contact Us</h2>
-    <div class="contact-form">
-        <label for="message">Leave a review, comment, or query:</label> <br>
-        <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
-        <input type="submit" value="Submit" name="submit-comment" class="submit-comment"> <br>
+    <div class="content">
+        <h2 style="font-size: 2rem;">Contact Us</h2>
+        <div class="contact-form">
+            <label for="message">Leave a review, comment, or query:</label> <br>
+            <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
+            <input type="submit" value="Submit" name="submit-comment" class="submit-comment"> <br>
+        </div>
+        <div class="display_contacts">
+            <h3>Contacts</h3>
+            <p>Phone: +254712345678</p>
+            <p>Email: support@labanca.com</p>
+            <p>Address: 123 Main Street, Nairobi</p>
+        </div>
     </div>
-    <div class="display_contacts">
-        <h3>Contacts</h3>
-        <p>Phone: +254712345678</p>
-        <p>Email: support@labanca.com</p>
-        <p>Address: 123 Main Street, Nairobi</p>
-    </div>
+
 <?php
 include("components/footer.php");
 ?>

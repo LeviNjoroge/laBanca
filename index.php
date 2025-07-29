@@ -19,46 +19,48 @@ $last_name= $_SESSION['last_name'];
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hi <?php echo $first_name?>!</h1>
-    <div class="acc_summary">
-        <h3>Here is a summary of your account...</h3>
-        <p title="if not updated, please log in again!">
-            Your current balance is:  <span style="font-size:larger;font-weight: bold;"><?php echo number_format(check_balance($_SESSION['id']),2); ?></span>
-        </p>
-        <!-- <h3 style="border-bottom: 2px solid gray;">Here are your recent transactions:</h3> -->
-        <table class="display_transactions">
-            <thead>
-                <tr>
-                    <th colspan="3" style="text-align:center">RECENT TRANSACTIONS</th>
-                </tr>
-                <tr>
-                    <th>Transaction ID</th>
-                    <th>Time</th>
-                    <th>Transaction</th>
-                    <!-- <th>Balance</th> -->
-                </tr>
-            </thead>
-            <tbody>
-                    <?php
-                        $query_get_transactions = "SELECT * FROM transactions WHERE user_id = {$_SESSION['id']} ORDER BY time DESC LIMIT 25";
-                        $results = mysqli_query($conn, $query_get_transactions);
-                        if (mysqli_num_rows($results) > 0) {
-                            while($transaction = mysqli_fetch_assoc($results)){
-                                echo "<tr>";
-                                echo "<td>TX_{$transaction['transaction_id']}</td>";
-                                echo "<td>{$transaction['time']}</td>";
-                                echo "<td>{$transaction['message']}</td>";
-                                // echo "<td>transaction['balance']</td>";
-                                echo "</tr>";
+    <div class="content">
+        <h1>Hi <?php echo $first_name?>!</h1>
+        <div class="acc_summary">
+            <h3>Here is a summary of your account...</h3>
+            <p title="if not updated, please log in again!">
+                Your current balance is:  <span style="font-size:larger;font-weight: bold;"><?php echo number_format(check_balance($_SESSION['id']),2); ?></span>
+            </p>
+            <!-- <h3 style="border-bottom: 2px solid gray;">Here are your recent transactions:</h3> -->
+            <table class="display_transactions">
+                <thead>
+                    <tr>
+                        <th colspan="3" style="text-align:center">RECENT TRANSACTIONS</th>
+                    </tr>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Time</th>
+                        <th>Transaction</th>
+                        <!-- <th>Balance</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                        <?php
+                            $query_get_transactions = "SELECT * FROM transactions WHERE user_id = {$_SESSION['id']} ORDER BY time DESC LIMIT 25";
+                            $results = mysqli_query($conn, $query_get_transactions);
+                            if (mysqli_num_rows($results) > 0) {
+                                while($transaction = mysqli_fetch_assoc($results)){
+                                    echo "<tr>";
+                                    echo "<td>TX_{$transaction['transaction_id']}</td>";
+                                    echo "<td>{$transaction['time']}</td>";
+                                    echo "<td>{$transaction['message']}</td>";
+                                    // echo "<td>transaction['balance']</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<td>N/A</td>";
+                                echo "<td>N/A</td>";
+                                echo "<td>N/A</td>";
                             }
-                        } else {
-                            echo "<td>N/A</td>";
-                            echo "<td>N/A</td>";
-                            echo "<td>N/A</td>";
-                        }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
