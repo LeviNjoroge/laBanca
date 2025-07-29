@@ -21,6 +21,9 @@ $user_profile_picture = $_SESSION['profile_picture'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <style>
+        body{
+            margin: 0;
+        }
         header{
             background-color: rgba(204, 203, 203, 1);
         }
