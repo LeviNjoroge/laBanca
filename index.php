@@ -23,7 +23,7 @@ $last_name= $_SESSION['last_name'];
     <div class="acc_summary">
         <h3>Here is a summary of your account...</h3>
         <p title="if not updated, please log in again!">
-            Your current balance is: <?php echo number_format(check_balance($_SESSION['id']),2); ?>
+            Your current balance is: <span style="font-weight: bold;"><?php echo number_format(check_balance($_SESSION['id']),2); ?></span>
         </p>
         <!-- <h3 style="border-bottom: 2px solid gray;">Here are your recent transactions:</h3> -->
         <table class="display_transactions">
