@@ -71,6 +71,7 @@ hr{
     border: 1px solid gray;
     padding: 2px;
     border-radius: 5px;
+    margin-bottom: 5%;
 
     thead {
         background-color: rgb(225, 225, 225);

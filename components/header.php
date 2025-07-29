@@ -23,6 +23,7 @@ $user_profile_picture = $_SESSION['profile_picture'];
     <style>
         body{
             margin: 0;
+            padding: 0;
         }
         header{
             background-color: rgba(204, 203, 203, 1);
