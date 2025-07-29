@@ -19,7 +19,7 @@ include("components/header.php");
             <input type="submit" value="Submit" name="submit-comment" class="submit-comment"> <br>
         </div>
         <div class="display_contacts">
-            <h3>Contacts</h3>
+            <h3>Reach us via</h3>
             <p>Phone: +254712345678</p>
             <p>Email: support@labanca.com</p>
             <p>Address: 123 Main Street, Nairobi</p>
