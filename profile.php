@@ -182,62 +182,66 @@ if (isset($_POST['submit_changes'])) {
         </style>
 </head>
 <body>
-<!--Change details-->
-<div class="change_details">
-    <h3>Edit Personal Information:</h3>
-    <form action="" method="post" enctype="multipart/form-data">
-        <img src="<?php echo "profile_picture_images/".$user_profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
-        <label for="profile_picture">Change/Add Profile Picture: </label>  
-        <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
-        <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
-        <?php if (isset($error)) {
-            echo "<script>alert('{$error}')</script>";
-        }elseif (isset($success)) {
-            echo "<script>alert(" . json_encode($success) . ")</script>";
-        }
-        ?>
-    </form> <hr>
+    <div class="content">
+        <h2 style="font-size: 2rem;">Profile</h2>
+    <!--Change details-->
+    <div class="change_details">
+        <h3>Edit Personal Information:</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            <img src="<?php echo "profile_picture_images/".$user_profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
+            <label for="profile_picture">Change/Add Profile Picture: </label>  
+            <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
+            <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
+            <?php if (isset($error)) {
+                echo "<script>alert('{$error}')</script>";
+            }elseif (isset($success)) {
+                echo "<script>alert(" . json_encode($success) . ")</script>";
+            }
+            ?>
+        </form> <hr>
 
-    <form action="" method="post" class="profile_details">
-        <label for="first_name">First Name:</label> 
-        <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
+        <form action="" method="post" class="profile_details">
+            <label for="first_name">First Name:</label> 
+            <input type="text" name="first_name" id="first_name" placeholder="<?php echo $user_first_name?>"> <br>
 
-        <label for="last_name">Last Name:</label> 
-        <input type="text" name="last_name" id="last_name" placeholder="<?php echo $user_last_name?>"> <br>  
+            <label for="last_name">Last Name:</label> 
+            <input type="text" name="last_name" id="last_name" placeholder="<?php echo $user_last_name?>"> <br>  
 
-        <label for="surname">Surname:</label>
-        <input type="text" name="surname" id="surname" placeholder="<?php echo $user_surname?>"> <br><hr>
+            <label for="surname">Surname:</label>
+            <input type="text" name="surname" id="surname" placeholder="<?php echo $user_surname?>"> <br><hr>
 
-        <label for="date_of_birth">Date of Birth:</label> 
-        <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>" style="width:auto;"> <br>
+            <label for="date_of_birth">Date of Birth:</label> 
+            <input type="date" name="date_of_birth" id="date_of_birth" placeholder="<?php echo $user_date_of_birth?>" style="width:auto;"> <br>
 
-        <label for="id">National ID No.:</label> 
-        <input type="number" name="id" id="id" placeholder="<?php echo $user_id_no?>"> <br> <hr>
+            <label for="id">National ID No.:</label> 
+            <input type="number" name="id" id="id" placeholder="<?php echo $user_id_no?>"> <br> <hr>
 
-        <label for="username">Username:</label> 
-        <input type="text" name="username" id="username" placeholder="<?php echo $user_username?>"> <br>
+            <label for="username">Username:</label> 
+            <input type="text" name="username" id="username" placeholder="<?php echo $user_username?>"> <br>
 
-        <label for="email">Email Address:</label> 
-        <input type="email" name="email" id="email" placeholder="<?php echo $user_email?>"> <br>
+            <label for="email">Email Address:</label> 
+            <input type="email" name="email" id="email" placeholder="<?php echo $user_email?>"> <br>
 
-        <label for="phone">Phone Number:</label> 
-        <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_phone?>"> <br>
+            <label for="phone">Phone Number:</label> 
+            <input type="tel" name="phone" id="phone" placeholder="<?php echo $user_phone?>"> <br>
 
-        <label for="password">Password:</label> 
-        <input type="password" name="password" id="password"> <br>
+            <label for="password">Password:</label> 
+            <input type="password" name="password" id="password"> <br>
 
-        <label for="password">Confirm Password:</label> 
-        <input type="password" name="confirm_password" id="confirm_password"> <br>
+            <label for="password">Confirm Password:</label> 
+            <input type="password" name="confirm_password" id="confirm_password"> <br>
 
-        <input type="submit" value="Save Changes" id="submit" name="submit_changes"> <br><hr>
-    </form>
-</div>
+            <input type="submit" value="Save Changes" id="submit" name="submit_changes"> <br><hr>
+        </form>
+    </div>
 
 <!--Delete account-->
     <form action="" method="post"><input type="submit" value="Delete Account!" name="delete_account" id="logout"></form><hr>
 
 <!--Logout button-->
     <form action="" method="post"><input type="submit" value="logout!" name="logout" id="logout"></form><hr>
+    
+    </div>
 </body>
 </html>
 

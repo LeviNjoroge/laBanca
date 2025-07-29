@@ -31,7 +31,8 @@ if (isset($_POST['transfer_cash'])) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="transactions">
+    <div class="transactions content">
+        <h1>Transactions</h1>
         <!--Deposit Cash-->
         <form action="" method="post" class="transaction-form">
             <h3>Deposit Cash</h3>
