@@ -15,8 +15,11 @@ include("components/header.php");
     <div class="content">
         <h2 style="font-size: 2rem;">Contact Us</h2>
         <div class="contact-form">
+            <label for="tel">Telephone Number:</label>
+            <input type="tel" name="tel" id="tel" value="<?php echo $_SESSION['phone']??'N/A'?>" style="width:min-content;" size="13"> <br>
+            <label for="tel">Email Address:</label>
+            <input type="email" name="email" id="email" value="<?php echo $_SESSION['phone']??'N/A'?>" style="width:min-content;" size="13"> <br>
             <label for="message">Leave a review, comment, or query:</label> <br>
-            <input type="tel" name="tel" id="tel" value="$_SESSION['phone']">
             <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
             <input type="submit" value="Submit" name="submit-comment" class="submit-comment"> <br>
         </div>
