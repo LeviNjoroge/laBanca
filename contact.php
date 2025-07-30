@@ -16,8 +16,8 @@ include("components/header.php");
         <h2 style="font-size: 2rem;">Contact Us</h2>
         <form action="" method="post">
             <div class="contact-form">
-            <label for="name">Full Name:</label>
-            <input id="name" type="name" name="name" id="name" value="<?php echo implode(" ", $_SESSION['first_name'], $_SESSION['surname'], $_SESSION['last_name'])?>" style="width:min-content;" size="13"> <br>
+            <label for="name">Username:</label>
+            <input id="name" type="name" name="name" id="name" value="<?php echo $_SESSION['username']?>" style="width:min-content;" size="13"> <br>
             <label for="tel">Telephone Number:</label>
             <input id="tel" type="tel" name="tel" id="tel" value="<?php echo $_SESSION['phone']??'N/A'?>" style="width:min-content;" size="13"> <br>
             <label for="email">Email Address:</label>
