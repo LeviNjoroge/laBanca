@@ -1,6 +1,9 @@
 <?php
 include("components/header.php");
 if(isset($_POST['submit_comment'])) {
+    $username = $_SESSION['username'];
+    $telephone = $_SESSION['phone'];
+    $email = $_SESSION['email'];
     submitReview();
 }
 ?>
@@ -19,12 +22,6 @@ if(isset($_POST['submit_comment'])) {
         <h2 style="font-size: 2rem;">Contact Us</h2>
         <form action="" method="post">
             <div class="contact-form">
-            <label for="name">Username:</label>
-            <input id="name" type="name" name="name" id="name" value="<?php echo $_SESSION['username']?>" style="width:min-content;" size="13"> <br>
-            <label for="tel">Telephone Number:</label>
-            <input id="tel" type="tel" name="tel" id="tel" value="<?php echo $_SESSION['phone']??'N/A'?>" style="width:min-content;" size="13"> <br>
-            <label for="email">Email Address:</label>
-            <input id="email" type="email" name="email" id="email" value="<?php echo $_SESSION['email']??'N/A'?>" style="width:min-content;"> <br>
             <label for="message">Leave a review, comment, or query:</label> <br>
             <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
             <input type="submit" value="Submit" name="submit_comment" class="submit_comment"> <br>

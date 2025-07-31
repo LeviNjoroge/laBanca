@@ -73,3 +73,11 @@ function withdraw_cash($user_id, $amount){
         echo "<script>alert('Was unable to withdraw \${$amount}:(')</script>";
     }
 }
+
+function submitReview(){
+    try {
+        
+    } catch (Throwable $th) {
+        echo "<script>alert('Was unable to submit review:(')</script>";
+    }
+}
