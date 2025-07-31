@@ -1,6 +1,6 @@
 <?php
 // to let users change their personal details or even delete their account
-include("components/header.php");
+include("admin_header.php");
 $user_username = $_SESSION['username'];
 $user_first_name = $_SESSION['first_name'];
 $user_last_name = $_SESSION['last_name'];
@@ -188,7 +188,7 @@ if (isset($_POST['submit_changes'])) {
     <div class="change_details">
         <h3>Edit Personal Information:</h3>
         <form action="" method="post" enctype="multipart/form-data">
-            <img src="<?php echo "profile_picture_images/".$user_profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
+            <img src="<?php echo $_SERVER["DOCUMENT_ROOT"]."/profile_picture_images/".$user_profile_picture?>" alt="Profile Picture NOT Found" id="profile_picture_img"> <br>
             <label for="profile_picture">Change/Add Profile Picture: </label>  
             <input type="file" name="profile_picture" id="profile_picture" accept=".jpg, .png, .jpeg" style="border-bottom: none; width:auto">
             <input type="submit" value="Change Profile Picture" name="change_profile_pic" style="border-bottom: none; width:auto; background-color: rgba(0,0,0,0.1); "> <br>
@@ -234,9 +234,6 @@ if (isset($_POST['submit_changes'])) {
             <input type="submit" value="Save Changes" id="submit" name="submit_changes"> <br><hr>
         </form>
     </div>
-
-<!--Delete account-->
-    <form action="" method="post"><input type="submit" value="Delete Account!" name="delete_account" id="logout"></form><hr>
 
 <!--Logout button-->
     <form action="" method="post"><input type="submit" value="logout!" name="logout" id="logout"></form><hr>
