@@ -18,8 +18,11 @@ include("admin_header.php");
         You can also manage your own account. <br>
         Below, you can view the users registered in LaBanca.
     </p>
-    
+
 </body>
 <?php
 include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");
+foreach ($_SESSION as $key => $value) {
+    echo $key . ": " . $value . "<br>";
+}
 ?>
