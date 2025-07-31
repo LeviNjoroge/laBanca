@@ -76,7 +76,9 @@ function withdraw_cash($user_id, $amount){
 
 function submitReview($username, $telephone, $email, $message){
     try {
-        
+        $query_record_review = "INSERT INTO reviews(username, email_address, telephone, message) VALUES('$username', '$email', '$telephone', '$message')";
+        mysqli_query($GLOBALS['conn'], $query_record_review);
+        echo "<script>alert('Review submitted successfully!')</script>";
     } catch (Throwable $th) {
         echo "<script>alert('Was unable to submit review:(')</script>";
     }
