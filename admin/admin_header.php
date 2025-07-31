@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("api.php");
 if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
 }
@@ -69,7 +68,7 @@ $user_profile_picture = $_SESSION['profile_picture'];
 <body>
     <header>
         <nav>
-            <a href="/profile.php" id="nav-profile"><img src="<?php echo "profile_picture_images/".$user_profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
+            <a href="/profile.php" id="nav-profile"><img src="<?php echo "$SESSION[DOCUMENT_ROOT]/profile_picture_images/".$user_profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
             <a href="admin.php" id="nav-links">Home</a>
             <a href="/admin_transactions.php" id="nav-links">Money Transactions</a>
             <a href="/admin_contact.php" id="nav-links">Reviews</a>

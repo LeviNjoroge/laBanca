@@ -1,8 +1,7 @@
 <?php
-session_start();
-include("api.php");
-
+include("admin_header.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,3 +19,8 @@ include("api.php");
         To get started, click on any of the tabs above!
     </p>
 </body>
+
+
+<?php
+include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");
+?>

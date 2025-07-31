@@ -29,7 +29,7 @@ if(isset($_POST["signin"])){
         if (password_verify($password, $user_password)) {
             $error = "login successful!";
             if ($user_username == 'admin') {
-                header("Location: admin.php");
+                header("Location: /admin/admin.php");
             }
             else {
                 header("Location: index.php");

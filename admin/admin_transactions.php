@@ -1,8 +1,7 @@
 <?php
-session_start();
-include("api.php");
-
+include("admin_header.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,3 +14,7 @@ include("api.php");
     
 </body>
 </html>
+
+<?php
+include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");
+?>
