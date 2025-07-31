@@ -26,7 +26,7 @@ include("admin_header.php");
             </thead>
             <tbody>
                     <?php
-                        $query_get_transactions = "SELECT * FROM transactions WHERE user_id = {$_SESSION['id']} ORDER BY time DESC LIMIT 25";
+                        $query_get_transactions = "SELECT * FROM reviews WHERE user_id = {$_SESSION['id']}ORDER BY time DESC LIMIT 25";
                         $results = mysqli_query($conn, $query_get_transactions);
                         if (mysqli_num_rows($results) > 0) {
                             while($transaction = mysqli_fetch_assoc($results)){
