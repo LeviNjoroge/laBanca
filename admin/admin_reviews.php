@@ -15,13 +15,13 @@ include("admin_header.php");
         <table class="show_records">
             <thead>
                 <tr>
-                    <th colspan="3" style="text-align:center">RECENT TRANSACTIONS</th>
+                    <th colspan="4" style="text-align:center">REVIEWS</th>
                 </tr>
                 <tr>
-                    <th>Transaction ID</th>
-                    <th>Time</th>
-                    <th>Transaction</th>
-                    <!-- <th>Balance</th> -->
+                    <th>Username</th>
+                    <th>Email Address</th>
+                    <th>Telephone Number</th>
+                    <th>Message</th>
                 </tr>
             </thead>
             <tbody>

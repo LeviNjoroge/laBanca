@@ -70,9 +70,9 @@ $user_profile_picture = $_SESSION['profile_picture'];
         <nav>
             <a href="/profile.php" id="nav-profile"><img src="<?php echo $_SERVER["DOCUMENT_ROOT"]."/profile_picture_images/".$user_profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
             <a href="admin.php" id="nav-links">Home</a>
-            <a href="/admin_transactions.php" id="nav-links">Money Transactions</a>
-            <a href="/admin_contact.php" id="nav-links">Reviews</a>
-            <a href="/profile.php" id="nav-links">Profile</a>
+            <a href="admin_transactions.php" id="nav-links">Money Transactions</a>
+            <a href="admin_reviews.php" id="nav-links">Reviews</a>
+            <a href="admin_profile.php" id="nav-links">Profile</a>
         </nav>
     </header>
 </body>
