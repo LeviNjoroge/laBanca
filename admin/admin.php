@@ -22,7 +22,4 @@ include("admin_header.php");
 </body>
 <?php
 include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");
-foreach ($_SESSION as $key => $value) {
-    echo $key . ": " . $value . "<br>";
-}
 ?>
