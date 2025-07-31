@@ -28,7 +28,12 @@ if(isset($_POST["signin"])){
         
         if (password_verify($password, $user_password)) {
             $error = "login successful!";
-            header("Location: index.php");
+            if ($user_username == 'admin') {
+                header("Location: admin.php");
+            }
+            else {
+                header("Location: index.php");
+            }
         }
         else {
             $error = "Incorrect password!";
