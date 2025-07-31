@@ -74,7 +74,7 @@ function withdraw_cash($user_id, $amount){
     }
 }
 
-function submitReview(){
+function submitReview($username, $telephone, $email, $message){
     try {
         
     } catch (Throwable $th) {
