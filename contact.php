@@ -4,7 +4,8 @@ if(isset($_POST['submit_comment'])) {
     $username = $_SESSION['username'];
     $telephone = $_SESSION['phone'];
     $email = $_SESSION['email'];
-    submitReview();
+    $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+    submitReview($username, $telephone, $email, $message);
 }
 ?>
 
