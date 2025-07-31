@@ -17,7 +17,6 @@ include("api.php");
         Welcome to the admin panel. <br>
         Here, you can manage all your users' accounts, transactions and reviews left by them. <br>
         You can also manage your own account. <br>
-        <br>
         To get started, click on any of the tabs above!
     </p>
 </body>
