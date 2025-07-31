@@ -24,7 +24,7 @@ if(isset($_POST['submit_comment'])) {
         <form action="" method="post">
             <div class="contact-form">
             <label for="message">Leave a review, comment, or query:</label> <br>
-            <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
+            <textarea name="message" id="message" placeholder="Write your message here..." maxlength="499"></textarea> <br>
             <input type="submit" value="Submit" name="submit_comment" class="submit-comment" > <br>
         </div>
         </form>
