@@ -11,3 +11,14 @@ include("api.php");
     <title>LaBanca</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
+<body>
+    <h1>Hi ADMIN!</h1>
+    <p>
+        Welcome to the admin panel. <br>
+        Here, you can manage all your users' accounts, transactions and reviews left by them. <br>
+        You can also manage your own account. <br>
+        <br>
+        Let's get started!
+    </p>
+    
+</body>
