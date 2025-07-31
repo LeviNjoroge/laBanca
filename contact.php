@@ -1,9 +1,9 @@
 <?php
 include("components/header.php");
 if(isset($_POST['submit_comment'])) {
-    $username = $_SESSION['username'];
-    $telephone = $_SESSION['phone'];
-    $email = $_SESSION['email'];
+    $username = $_SESSION['username'] ?? 'Anonymous';
+    $telephone = $_SESSION['phone'] ?? 'N/A';
+    $email = $_SESSION['email'] ?? 'N/A';
     $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
     submitReview($username, $telephone, $email, $message);
 }
