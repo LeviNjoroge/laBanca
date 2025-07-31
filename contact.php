@@ -24,11 +24,11 @@ if(isset($_POST['submit_comment'])) {
             <div class="contact-form">
             <label for="message">Leave a review, comment, or query:</label> <br>
             <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
-            <input type="submit" value="Submit" name="submit_comment" class="submit_comment"> <br>
+            <input type="submit" value="Submit" name="submit_comment" class="submit-comment" > <br>
         </div>
         </form>
         <div class="display_contacts">
-            <h3>Reach us via...</h3>
+            <h3>or reach us via...</h3>
             <p>Phone: <a href="tel:+254712345678" style="color: black; text-decoration: none;">+254712345678</a></p>
             <p>Email: <a href="mailto:support@labanca.com" style="color: black; text-decoration: none;">support@labanca.com</a></p>
             <p>Address: 123 Main Street, Rome, Italy</p>
