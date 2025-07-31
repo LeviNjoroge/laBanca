@@ -71,8 +71,8 @@ $user_profile_picture = $_SESSION['profile_picture'];
         <nav>
             <a href="/profile.php" id="nav-profile"><img src="<?php echo "profile_picture_images/".$user_profile_picture?>" id="img_profile_pic"> <?php echo $_SESSION["username"]?> </a>
             <a href="admin.php" id="nav-links">Home</a>
-            <a href="/transactions.php" id="nav-links">Money Transactions</a>
-            <a href="/contact.php" id="nav-links">Contact Us</a>
+            <a href="/admin_transactions.php" id="nav-links">Money Transactions</a>
+            <a href="/admin_contact.php" id="nav-links">Contact Us</a>
             <a href="/profile.php" id="nav-links">Profile</a>
         </nav>
     </header>
