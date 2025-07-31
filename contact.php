@@ -1,5 +1,8 @@
 <?php
 include("components/header.php");
+if(isset($_POST['submit_comment'])) {
+    submitReview();
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +27,7 @@ include("components/header.php");
             <input id="email" type="email" name="email" id="email" value="<?php echo $_SESSION['email']??'N/A'?>" style="width:min-content;"> <br>
             <label for="message">Leave a review, comment, or query:</label> <br>
             <textarea name="message" id="message" placeholder="Write your message here..."></textarea> <br>
-            <input type="submit" value="Submit" name="submit-comment" class="submit-comment" onsubmit="submitReview()"> <br>
+            <input type="submit" value="Submit" name="submit_comment" class="submit_comment"> <br>
         </div>
         </form>
         <div class="display_contacts">
