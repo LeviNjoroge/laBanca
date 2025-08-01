@@ -1,5 +1,12 @@
 <?php
 include("admin_header.php");
+
+if (isset($_POST['reset_password'])) {
+    $user = $_POST['user'];
+    $password = password_hash("0000", PASSWORD_DEFAULT);
+    $query = "UPDATE users SET password = '$password' WHERE username = '$user' OR id = '$user'";
+    mysqli_query($conn, $query);
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +75,12 @@ include("admin_header.php");
         </tbody>
     </table>
     </div>
+    <h2>Reset user's password:</h2>
+    <form action="" method="post">
+        <label for="user">Enter user_id or username:</label> <br>
+        <input type="text" name="user" id="user"> <br>
+        <input type="submit" value="Reset Password" name="reset_password">
+    </form>
     </div>
 </body>
 <?php
