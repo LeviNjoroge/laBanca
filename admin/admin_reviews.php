@@ -10,7 +10,8 @@ include("admin_header.php");
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Reviews</h1>
+    <div class="content">
+            <h1>Reviews</h1>
     <div class="reviews">
         <table class="show_records">
             <thead>
@@ -46,6 +47,7 @@ include("admin_header.php");
                 ?>
             </tbody>
         </table>
+    </div>
     </div>
 </body>
 </html>

@@ -11,6 +11,7 @@ include("admin_header.php");
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <div class="content">
     <h1>Hi ADMIN!</h1>
     <p>
         Welcome to the admin panel. <br>
@@ -18,9 +19,10 @@ include("admin_header.php");
         You can also manage your own account. <br>
         Below, you can view the users registered in LaBanca.
     </p>
-    <table>
+    <div class="table_wrap">
+        <table class="show_records" border="1">
         <thead>
-            <tr><th colspan="11">Users</th></tr>
+            <tr><th colspan="11" style="text-align:center">Users</th></tr>
             <tr>
                 <th>ID</th>
                 <th>Username</th>
@@ -57,6 +59,8 @@ include("admin_header.php");
             ?>
         </tbody>
     </table>
+    </div>
+    </div>
 </body>
 <?php
 include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");

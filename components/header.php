@@ -37,7 +37,7 @@ $user_profile_picture = $_SESSION['profile_picture'];
         #nav-links{
             vertical-align: middle;
             top: 0px;
-            margin-right: 10%;
+            margin-right: 5%;
             color: rgb(43, 43, 43);
             text-decoration: none;
             font-weight: bold;
@@ -56,7 +56,6 @@ $user_profile_picture = $_SESSION['profile_picture'];
             margin-right: 5px;
             
         }
-
 
         #nav-profile{
             margin-right: 12%;

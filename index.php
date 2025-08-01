@@ -27,7 +27,7 @@ $last_name= $_SESSION['last_name'];
                 Your current balance is:  <span style="font-size:larger;font-weight: bold;"><?php echo number_format(check_balance($_SESSION['id']),2); ?></span>
             </p>
             <!-- <h3 style="border-bottom: 2px solid gray;">Here are your recent transactions:</h3> -->
-            <table class="display_transactions">
+            <table class="show_records">
                 <thead>
                     <tr>
                         <th colspan="3" style="text-align:center">RECENT TRANSACTIONS</th>

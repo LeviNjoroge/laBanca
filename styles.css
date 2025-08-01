@@ -65,18 +65,28 @@ hr{
     height: 150px;
 }
 
+.table_wrap{
+    width: 100%;
+    overflow-x: scroll;
+    max-height: 1000px;
+    overflow-y: scroll; 
+}
+
 .show_records{
     border-collapse: collapse;
-    margin-left: 10%;
-    width: 80%;
     border: 1px solid gray;
     padding: 2px;
-    border-radius: 5px;
+    /* border-radius: 50px; */
     margin-bottom: 5%;
+    table-layout:auto;
+    width: 100%;
+    min-width: max-content;
 
     thead {
         background-color: rgb(225, 225, 225);
         border-bottom: 1px solid rgba(128, 128, 128, 0.459);
+        position: sticky;
+        min-width: max-content;
     }
 
     tbody tr {
@@ -84,7 +94,7 @@ hr{
         border-bottom: 1px solid rgba(128, 128, 128, 0.459);
         }
 
-    tr:hover, tr:nth-of-type(even):hover{
+    tbody tr:hover, tr:nth-of-type(even):hover{
         background-color: rgb(201, 218, 250);
         }
 
@@ -94,11 +104,9 @@ hr{
 
     td{
         padding: 5px;
-        border-radius: 2px;
     }
 
     th{
-        border-radius: 2px;
         text-align: left;
         padding: 7px;
         font-family: 'Courier New', Courier, monospace;
@@ -149,4 +157,5 @@ hr{
 
 .content{
     margin-left: 1%;
+    margin-right: 1%;
 }

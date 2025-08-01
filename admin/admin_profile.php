@@ -15,17 +15,7 @@ $user_profile_picture = $_SESSION['profile_picture'];
 // logout of account
 if (isset($_POST["logout"])) {
     session_destroy();
-    header("Location: signin.php");
-}
-
-// delete account
-if (isset($_POST["delete_account"])) {
-    echo "<script>alert('DELETING ACCOUNT')</script>";
-    $sql_delete_all = "DELETE FROM users WHERE id = {$user_id}";
-    mysqli_query($conn, $sql_delete_all);
-    echo "<script>alert('ACCOUNT DELETED')</script>";
-    session_destroy();
-    header("Location: signin.php");
+    header("Location: ../signin.php");
 }
 
 // show profile picture
