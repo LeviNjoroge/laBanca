@@ -56,6 +56,14 @@ include("admin_header.php");
                     echo "<td>" . $row['balance'] . "</td>";
                     echo "</tr>";
                 }
+                echo "<tr style='background-color: #f2f2f2;'>";
+                $query_show_number_of_users = "SELECT COUNT(*), SUM(balance) FROM users WHERE username != 'admin'";
+                $result = mysqli_query($conn, $query_show_number_of_users);
+                $row = mysqli_fetch_assoc($result);
+                echo "<td colspan='9'></td>";
+                echo "<td> Number of Users: " . $row['COUNT(*)'] . "</td>";
+                echo "<td> Total Amount: " . $row['SUM(balance)'] . "</td>";
+                echo "</tr>";
             ?>
         </tbody>
     </table>
