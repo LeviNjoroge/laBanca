@@ -18,7 +18,45 @@ include("admin_header.php");
         You can also manage your own account. <br>
         Below, you can view the users registered in LaBanca.
     </p>
-
+    <table>
+        <thead>
+            <tr><th colspan="11">Users</th></tr>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Surname</th>
+                <th>Date of Birth</th>
+                <th>National ID No.</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Date of Registration</th>
+                <th>Account Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                $query = "SELECT * FROM users WHERE username != 'admin'";
+                $result = mysqli_query($conn, $query);
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['id'] . "</td>";
+                    echo "<td>" . $row['username'] . "</td>";
+                    echo "<td>" . $row['first_name'] . "</td>";
+                    echo "<td>" . $row['last_name'] . "</td>";
+                    echo "<td>" . $row['surname'] . "</td>";
+                    echo "<td>" . $row['date_of_birth'] . "</td>";
+                    echo "<td>" . $row['national_id_no'] . "</td>";
+                    echo "<td>" . $row['email_address'] . "</td>";
+                    echo "<td>" . $row['phone_number'] . "</td>";
+                    echo "<td>" . $row['date_of_registration'] . "</td>";
+                    echo "<td>" . $row['balance'] . "</td>";
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
 </body>
 <?php
 include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");

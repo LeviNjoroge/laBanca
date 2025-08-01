@@ -12,7 +12,7 @@ include("admin_header.php");
 <body>
     <h1>Reviews</h1>
     <div class="reviews">
-        <table class="show_records" border="1">
+        <table class="show_records">
             <thead>
                 <tr>
                     <th colspan="4" style="text-align:center">REVIEWS</th>
