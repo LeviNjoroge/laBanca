@@ -12,7 +12,7 @@ include("admin_header.php");
 <body>
     <h1>Reviews</h1>
     <div class="reviews">
-        <table class="show_records">
+        <table class="show_records" border="1">
             <thead>
                 <tr>
                     <th colspan="4" style="text-align:center">REVIEWS</th>
@@ -26,18 +26,19 @@ include("admin_header.php");
             </thead>
             <tbody>
                     <?php
-                        $query_get_transactions = "SELECT * FROM reviews WHERE user_id = {$_SESSION['id']}ORDER BY time DESC LIMIT 25";
-                        $results = mysqli_query($conn, $query_get_transactions);
+                        $query_get_reviews = "SELECT * FROM reviews ORDER BY time DESC";
+                        $results = mysqli_query($GLOBALS['conn'], $query_get_reviews);
                         if (mysqli_num_rows($results) > 0) {
-                            while($transaction = mysqli_fetch_assoc($results)){
+                            while($review = mysqli_fetch_assoc($results)){
                                 echo "<tr>";
-                                echo "<td>TX_{$transaction['transaction_id']}</td>";
-                                echo "<td>{$transaction['time']}</td>";
-                                echo "<td>{$transaction['message']}</td>";
-                                // echo "<td>transaction['balance']</td>";
+                                echo "<td>{$review['username']}</td>";
+                                echo "<td>{$review['email_address']}</td>";
+                                echo "<td>{$review['telephone']}</td>";
+                                echo "<td>{$review['message']}</td>";
                                 echo "</tr>";
                             }
                         } else {
+                            echo "<td>N/A</td>";
                             echo "<td>N/A</td>";
                             echo "<td>N/A</td>";
                             echo "<td>N/A</td>";

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../database.php");
 if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
 }
