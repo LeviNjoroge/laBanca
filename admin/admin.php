@@ -81,12 +81,19 @@ if (isset($_POST['reset_password'])) {
         <form action="" method="post">
             <label for="user" title="Do not use this without the user's consent!!!">Enter user_id or username:</label>
             <input type="text" name="user" id="user" title="Do not use this without the user's consent!!!"> <br>
-            <input type="submit" value="Reset Password" name="reset_password" id="submit" title="Do not use this without the user's consent!!!">
+            <input type="submit" value="Reset Password" name="reset_password" id="submit" title="Do not use this without the user's consent!!!" onclick="hideResetUserPass()">
         </form>
     </div>
     </div>
+    <script>
+        function showResetUserPass(){
+            document.querySelector(".reset_user_pass").style.display = "block";
+        }
+        function hideResetUserPass(){
+            document.querySelector(".reset_user_pass").style.display = "none";
+        }
+    </script>
 </body>
 <?php
 include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");
 ?>
-
