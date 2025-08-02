@@ -49,6 +49,10 @@ $user_profile_picture = $_SESSION['profile_picture'];
             color:rgb(145, 145, 145)
         }
 
+        #nav-links:hover{
+            border-bottom: 1px solid black;
+        }
+
         #img_profile_pic {
             height: 60px;
             border-radius: 50%;
