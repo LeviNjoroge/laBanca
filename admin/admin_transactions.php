@@ -20,8 +20,8 @@ include("admin_header.php");
                     </tr>
                     <tr>
                         <th>Transaction ID</th>
-                        <th>User</th>
                         <th>Time</th>
+                        <th>User</th>
                         <th>Transaction</th>
                     </tr>
                 </thead>
@@ -33,8 +33,9 @@ include("admin_header.php");
                                 while($transaction = mysqli_fetch_assoc($results)){
                                     echo "<tr>";
                                     echo "<td>TX_{$transaction['transaction_id']}</td>";
-                                    echo "<td>{$transaction['user_id']}</td>";
                                     echo "<td>{$transaction['time']}</td>";
+                                    echo "<td>{$transaction['user_id']}</td>";
+                                    
                                     echo "<td>{$transaction['message']}</td>";
                                     // echo "<td>transaction['balance']</td>";
                                     echo "</tr>";

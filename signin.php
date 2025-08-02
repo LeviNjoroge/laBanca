@@ -25,6 +25,7 @@ if(isset($_POST["signin"])){
         $_SESSION['phone'] = $user["phone_number"];
         $_SESSION['balance'] = $user["balance"];
         $_SESSION['profile_picture'] = $user["profile_picture"] ?? 'default.jpeg';
+        $_COOKIE['id'] = $user["id"];
         
         if (password_verify($password, $user_password)) {
             $error = "login successful!";
