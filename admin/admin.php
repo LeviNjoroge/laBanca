@@ -75,7 +75,7 @@ if (isset($_POST['reset_password'])) {
         </tbody>
     </table>
     </div>
-    <button onclick="showResetUserPass()">Reset user password</button>
+    <button onclick="showResetUserPass()" id="submit" >Reset user password</button>
     <div class="reset_user_pass" style="display: none;">
         <h2>Reset user's password:</h2>
         <form action="" method="post">
@@ -87,9 +87,16 @@ if (isset($_POST['reset_password'])) {
     </div>
     <script>
         function showResetUserPass(){
-            document.querySelector(".reset_user_pass").style.display = "block";
+            var pass = prompt("Enter password");
+            if(pass === "0000"){
+                document.querySelector(".reset_user_pass").style.display = "block";
+            }
+            else{
+                alert("Incorrect password");
+            }
         }
         function hideResetUserPass(){
+            alert("Password reset successfully");
             document.querySelector(".reset_user_pass").style.display = "none";
         }
     </script>
