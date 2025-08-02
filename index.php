@@ -23,6 +23,7 @@ $last_name= $_SESSION['last_name'];
         <h1>Hi <?php echo $first_name?>!</h1>
         <div class="acc_summary">
             <h3>Here is a summary of your account...</h3>
+            <p>Your account number is: <span style="font-size:larger;font-weight: bold;"> USER_<?php echo $_SESSION['id']; ?></span></p>
             <p title="if not updated, please log in again!">
                 Your current balance is:  <span style="font-size:larger;font-weight: bold;"><?php echo number_format(check_balance($_SESSION['id']),2); ?></span>
             </p>
