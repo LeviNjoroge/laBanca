@@ -75,15 +75,18 @@ if (isset($_POST['reset_password'])) {
         </tbody>
     </table>
     </div>
-    
-    <h2>Reset user's password:</h2>
-    <form action="" method="post">
-        <label for="user" title="Do not use this without the user's consent!!!">Enter user_id or username:</label>
-        <input type="text" name="user" id="user" title="Do not use this without the user's consent!!!"> <br>
-        <input type="submit" value="Reset Password" name="reset_password" id="submit" title="Do not use this without the user's consent!!!">
-    </form>
+    <button onclick="showResetUserPass()">Reset user password</button>
+    <div class="reset_user_pass" style="display: none;">
+        <h2>Reset user's password:</h2>
+        <form action="" method="post">
+            <label for="user" title="Do not use this without the user's consent!!!">Enter user_id or username:</label>
+            <input type="text" name="user" id="user" title="Do not use this without the user's consent!!!"> <br>
+            <input type="submit" value="Reset Password" name="reset_password" id="submit" title="Do not use this without the user's consent!!!">
+        </form>
+    </div>
     </div>
 </body>
 <?php
 include("$_SERVER[DOCUMENT_ROOT]/components/footer.php");
 ?>
+
