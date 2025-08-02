@@ -75,6 +75,7 @@ if (isset($_POST['reset_password'])) {
         </tbody>
     </table>
     </div>
+    
     <h2>Reset user's password:</h2>
     <form action="" method="post">
         <label for="user" title="Do not use this without the user's consent!!!">Enter user_id or username:</label>
