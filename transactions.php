@@ -34,22 +34,30 @@ if (isset($_POST['transfer_cash'])) {
     <div class="transactions content">
         <h1>Transactions</h1>
         <!--Deposit Cash-->
-        <form action="" method="post" class="transaction-form">
+        <button id="deposit-btn" onclick="openDialog()">Deposit Cash</button>
+        <dialog>
+            <form action="" method="post" class="transaction-form">
             <h3>Deposit Cash</h3>
             <label for="amount">Enter amount to deposit: </label>
             <input type="number" name="deposit" id="deposit"> <br>
             <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
         </form>
+        </dialog>
         <hr>
         <!--Withdraw Cash-->
+        <button id="withdraw-btn" onclick="openDialog()">Withdraw Cash</button>
+        <dialog>
         <form action="" method="post" class="transaction-form">
             <h3>Withdraw Cash</h3>
             <label for="amount">Enter amount to withdraw: </label>
             <input type="number" name="withdraw" id="withdraw"> <br>
             <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash"> <br>
         </form>
+        </dialog>
         <hr>
         <!--Transfer Cash-->
+        <button id="transfer-btn" onclick="openDialog()">Transfer Cash</button>
+        <dialog>
         <form action="" method="post" class="transaction-form">
             <h3>Transfer Cash</h3>
             <label for="to">Enter user_id of the recipient: </label>
@@ -57,9 +65,22 @@ if (isset($_POST['transfer_cash'])) {
             <label for="amount">Enter amount to Transfer: </label>
             <input type="number" name="transfer" id="transfer"> <br>
             <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash"> <br>
+
         </form>
+        </dialog>
         <hr>
     </div>
+    <script>
+        function openDialog() {
+            document.querySelector("dialog").showModal();
+            document.getElementById("deposit-btn").style.display = "none";
+            document.getElementById("withdraw-btn").style.display = "none";
+            document.getElementById("transfer-btn").style.display = "none";
+        }
+        function closeDialog() {
+            
+        }
+    </script>
 </body>
 </html>
 <?php
