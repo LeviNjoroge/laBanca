@@ -32,9 +32,13 @@ if (isset($_POST['transfer_cash'])) {
 </head>
 <body>
     <div class="transactions content">
+        <div class="dialog_buttons">
+            <button id="deposit-btn" onclick="openDialog('deposit_dialog')">Deposit Cash</button>
+            <button id="withdraw-btn" onclick="openDialog('withdraw_dialog')">Withdraw Cash</button>
+            <button id="transfer-btn" onclick="openDialog('transfer_dialog')">Transfer Cash</button>
+        </div>
         <h1>Transactions</h1>
         <!--Deposit Cash-->
-        <button id="deposit-btn" onclick="openDialog()">Deposit Cash</button>
         <dialog id="deposit_dialog">
             <form action="" method="post" class="transaction-form">
             <h3>Deposit Cash</h3>
@@ -45,7 +49,6 @@ if (isset($_POST['transfer_cash'])) {
         </dialog>
         <hr>
         <!--Withdraw Cash-->
-        <button id="withdraw-btn" onclick="openDialog()">Withdraw Cash</button>
         <dialog id="withdraw_dialog">
         <form action="" method="post" class="transaction-form">
             <h3>Withdraw Cash</h3>
@@ -56,7 +59,6 @@ if (isset($_POST['transfer_cash'])) {
         </dialog>
         <hr>
         <!--Transfer Cash-->
-        <button id="transfer-btn" onclick="openDialog()">Transfer Cash</button>
         <dialog id="transfer_dialog">
         <form action="" method="post" class="transaction-form">
             <h3>Transfer Cash</h3>
@@ -71,8 +73,8 @@ if (isset($_POST['transfer_cash'])) {
         <hr>
     </div>
     <script>
-        function openDialog() {
-            document.querySelector("dialog").showModal();
+        function openDialog(dialogId) {
+            document.querySelector(dialogId).showModal();
         }
         function closeDialog() {
             document.querySelector("dialog").close();
