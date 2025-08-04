@@ -46,6 +46,7 @@ if (isset($_POST['transfer_cash'])) {
             <label for="amount">Enter amount to deposit: </label>
             <input type="number" name="deposit" id="deposit"> <br>
             <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
+            <button onclick="closeDialog()">Close</button>
         </form>
         </dialog>
         <!--Withdraw Cash-->
@@ -55,6 +56,7 @@ if (isset($_POST['transfer_cash'])) {
             <label for="amount">Enter amount to withdraw: </label>
             <input type="number" name="withdraw" id="withdraw"> <br>
             <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash"> <br>
+            <button onclick="closeDialog()">Close</button>
         </form>
         </dialog>
         <!--Transfer Cash-->
@@ -66,7 +68,7 @@ if (isset($_POST['transfer_cash'])) {
             <label for="amount">Enter amount to Transfer: </label>
             <input type="number" name="transfer" id="transfer"> <br>
             <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash"> <br>
-
+            <button onclick="closeDialog()">Close</button>
         </form>
         </dialog>
     </div>
