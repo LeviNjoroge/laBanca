@@ -74,7 +74,7 @@ if (isset($_POST['transfer_cash'])) {
     </div>
     <script>
         function openDialog(dialogId) {
-            document.querySelector(dialogId).showModal();
+            document.getElementById(dialogId).showModal();
         }
         function closeDialog() {
             document.querySelector("dialog").close();
