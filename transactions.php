@@ -88,7 +88,7 @@ if (isset($_POST['transfer_cash'])) {
             document.querySelector("dialog").close();
         }
         dialog.addEventListener("click", function(e) {
-            if(!wrapper.contains) {
+            if(!wrapper.contains(e.target)) {
                 dialog.close();
             }
         });
