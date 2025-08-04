@@ -79,18 +79,27 @@ if (isset($_POST['transfer_cash'])) {
         </dialog>
     </div>
     <script>
-        let dialog = document.querySelector("dialog");
-        let wrapper = document.getElementsByClassName("form_wrapper");
         function openDialog(dialogId) {
             document.getElementById(dialogId).showModal();
         }
+        
         function closeDialog() {
-            document.querySelector("dialog").close();
+            // Close any open dialog
+            document.querySelectorAll("dialog").forEach(dialog => {
+                if (dialog.open) {
+                    dialog.close();
+                }
+            });
         }
-        dialog.addEventListener("click", function(e) {
-            if(!wrapper.contains(e.target)) {
-                dialog.close();
-            }
+        
+        // Add click-outside-to-close functionality to all dialogs
+        document.querySelectorAll("dialog").forEach(dialog => {
+            dialog.addEventListener("click", function(e) {
+                const wrapper = this.querySelector(".form_wrapper");
+                if (wrapper && !wrapper.contains(e.target)) {
+                    this.close();
+                }
+            });
         });
     </script>
 </body>
