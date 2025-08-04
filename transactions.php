@@ -79,6 +79,7 @@ if (isset($_POST['transfer_cash'])) {
         function closeDialog() {
             document.querySelector("dialog").close();
         }
+        
     </script>
 </body>
 </html>
