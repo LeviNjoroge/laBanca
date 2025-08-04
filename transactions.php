@@ -41,45 +41,57 @@ if (isset($_POST['transfer_cash'])) {
         
         <!--Deposit Cash-->
         <dialog id="deposit_dialog">
-            <form action="" method="post" class="transaction-form">
-            <h3>Deposit Cash</h3>
-            <label for="amount">Enter amount to deposit: </label>
-            <input type="number" name="deposit" id="deposit"> <br>
-            <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash">
-            <button onclick="closeDialog()">Close</button>
-        </form>
+            <div class="form_wrapper">
+                <form action="" method="post" class="transaction-form">
+                    <h3>Deposit Cash</h3>
+                    <label for="amount">Enter amount to deposit: </label>
+                    <input type="number" name="deposit" id="deposit"> <br>
+                    <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash">
+                    <button onclick="closeDialog()">Close</button>
+                </form>
+            </div>
         </dialog>
         <!--Withdraw Cash-->
         <dialog id="withdraw_dialog">
-        <form action="" method="post" class="transaction-form">
-            <h3>Withdraw Cash</h3>
-            <label for="amount">Enter amount to withdraw: </label>
-            <input type="number" name="withdraw" id="withdraw"> <br>
-            <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash">
-            <button onclick="closeDialog()">Close</button>
-        </form>
+            <div class="form_wrapper">
+                <form action="" method="post" class="transaction-form">
+                    <h3>Withdraw Cash</h3>
+                    <label for="amount">Enter amount to withdraw: </label>
+                    <input type="number" name="withdraw" id="withdraw"> <br>
+                    <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash">
+                    <button onclick="closeDialog()">Close</button>
+                </form>
+            </div>
         </dialog>
         <!--Transfer Cash-->
         <dialog id="transfer_dialog">
-        <form action="" method="post" class="transaction-form">
-            <h3>Transfer Cash</h3>
-            <label for="to">Enter user_id of the recipient: </label>
-            <input type="number" name="to" id="to"> <br>
-            <label for="amount">Enter amount to Transfer: </label>
-            <input type="number" name="transfer" id="transfer"> <br>
-            <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash">
-            <button onclick="closeDialog()">Close</button>
-        </form>
+            <div class="form_wrapper">
+                <form action="" method="post" class="transaction-form">
+                    <h3>Transfer Cash</h3>
+                    <label for="to">Enter user_id of the recipient: </label>
+                    <input type="number" name="to" id="to"> <br>
+                    <label for="amount">Enter amount to Transfer: </label>
+                    <input type="number" name="transfer" id="transfer"> <br>
+                    <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash">
+                    <button onclick="closeDialog()" >Close</button>
+                </form>
+            </div>
         </dialog>
     </div>
     <script>
+        let dialog = document.querySelector("dialog");
+        let wrapper = document.getElementsByClassName("form_wrapper");
         function openDialog(dialogId) {
             document.getElementById(dialogId).showModal();
         }
         function closeDialog() {
             document.querySelector("dialog").close();
         }
-        
+        dialog.addEventListener("click", function(e) {
+            if(!wrapper.contains) {
+                dialog.close();
+            }
+        });
     </script>
 </body>
 </html>
