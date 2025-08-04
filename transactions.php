@@ -32,12 +32,13 @@ if (isset($_POST['transfer_cash'])) {
 </head>
 <body>
     <div class="transactions content">
+        <h1>Transactions</h1>
         <div class="dialog_buttons">
             <button id="deposit-btn" onclick="openDialog('deposit_dialog')">Deposit Cash</button>
             <button id="withdraw-btn" onclick="openDialog('withdraw_dialog')">Withdraw Cash</button>
             <button id="transfer-btn" onclick="openDialog('transfer_dialog')">Transfer Cash</button>
         </div>
-        <h1>Transactions</h1>
+        
         <!--Deposit Cash-->
         <dialog id="deposit_dialog">
             <form action="" method="post" class="transaction-form">
@@ -47,7 +48,6 @@ if (isset($_POST['transfer_cash'])) {
             <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash"> <br>
         </form>
         </dialog>
-        <hr>
         <!--Withdraw Cash-->
         <dialog id="withdraw_dialog">
         <form action="" method="post" class="transaction-form">
@@ -57,7 +57,6 @@ if (isset($_POST['transfer_cash'])) {
             <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash"> <br>
         </form>
         </dialog>
-        <hr>
         <!--Transfer Cash-->
         <dialog id="transfer_dialog">
         <form action="" method="post" class="transaction-form">
@@ -70,7 +69,6 @@ if (isset($_POST['transfer_cash'])) {
 
         </form>
         </dialog>
-        <hr>
     </div>
     <script>
         function openDialog(dialogId) {
