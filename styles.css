@@ -182,4 +182,8 @@ dialog::backdrop{
     padding: 0px;
 }
 
-.dialog_buttons
+.dialog_buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
