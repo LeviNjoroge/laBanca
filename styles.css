@@ -188,5 +188,8 @@ dialog::backdrop{
     margin-top: 10px;
     margin: auto;
     width: 80%;
-    
+
+    button{
+        margin: 5px;
+    }
 }
