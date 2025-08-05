@@ -35,12 +35,12 @@ if (isset($_POST['transfer_cash'])) {
         <h1>Transactions</h1>
         <div class="dialog_buttons">
             <button id="deposit_btn" onclick="openDialog('deposit_dialog')">
-                <img src="images/deposit.png" alt="Deposit">
+                <img src="images/deposit.png" alt="Deposit" width="70px" height="70px">
                 <h2>Deposit Cash</h2>
                 <p>Deposit cash into your account</p>
             </button>
             <button id="withdraw_btn" onclick="openDialog('withdraw_dialog')">
-                <img src="images/withdraw.png" alt="Withdraw">
+                <img src="images/cash-withdrawal.png" alt="Withdraw" width="70px" height="70px">
                 <h2>Withdraw Cash</h2>
                 <p>Withdraw cash from your account</p>
             </button>
@@ -59,7 +59,7 @@ if (isset($_POST['transfer_cash'])) {
                     <label for="amount">Enter amount to deposit: </label>
                     <input type="number" name="deposit" id="deposit"> <br>
                     <input type="submit" value="Deposit Cash" name="deposit_cash" id="cash">
-                    <button onclick="closeDialog()">Close</button>
+                    <button onclick="closeDialog()" class="close-btn" type="button">Cancel</button>
                 </form>
             </div>
         </dialog>
@@ -71,7 +71,7 @@ if (isset($_POST['transfer_cash'])) {
                     <label for="amount">Enter amount to withdraw: </label>
                     <input type="number" name="withdraw" id="withdraw"> <br>
                     <input type="submit" value="Withdraw Cash" name="withdraw_cash" id="cash">
-                    <button onclick="closeDialog()">Close</button>
+                    <button onclick="closeDialog()" class="close-btn" type="button">Cancel</button>
                 </form>
             </div>
         </dialog>
@@ -85,7 +85,7 @@ if (isset($_POST['transfer_cash'])) {
                     <label for="amount">Enter amount to Transfer: </label>
                     <input type="number" name="transfer" id="transfer"> <br>
                     <input type="submit" value="Transfer Cash" name="transfer_cash" id="cash">
-                    <button onclick="closeDialog()" >Close</button>
+                    <button onclick="closeDialog()" class="close-btn" type="button">Cancel</button>
                 </form>
             </div>
         </dialog>
