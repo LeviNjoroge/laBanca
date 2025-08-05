@@ -188,8 +188,17 @@ dialog::backdrop{
     margin-top: 10px;
     margin: auto;
     width: 80%;
+    margin-bottom: 40px;
+    height: 320px;
 
     button{
         margin: 5px;
+        padding: 5px;
+        height: 100%;
+        width: 30%;
+        border: 1px solid rgba(128, 128, 128, 0.884);
+        border-radius: 10px;
+        background-color: rgba(172, 172, 172, 0.594);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     }
 }

@@ -34,9 +34,21 @@ if (isset($_POST['transfer_cash'])) {
     <div class="transactions content">
         <h1>Transactions</h1>
         <div class="dialog_buttons">
-            <button id="deposit_btn" onclick="openDialog('deposit_dialog')">Deposit Cash</button>
-            <button id="withdraw_btn" onclick="openDialog('withdraw_dialog')">Withdraw Cash</button>
-            <button id="transfer_btn" onclick="openDialog('transfer_dialog')">Transfer Cash</button>
+            <button id="deposit_btn" onclick="openDialog('deposit_dialog')">
+                <img src="images/deposit.png" alt="Deposit">
+                <h2>Deposit Cash</h2>
+                <p>Deposit cash into your account</p>
+            </button>
+            <button id="withdraw_btn" onclick="openDialog('withdraw_dialog')">
+                <img src="images/withdraw.png" alt="Withdraw">
+                <h2>Withdraw Cash</h2>
+                <p>Withdraw cash from your account</p>
+            </button>
+            <button id="transfer_btn" onclick="openDialog('transfer_dialog')">
+                <img src="images/money-transfer.png" alt="Transfer" width="70px" height="70px">
+                <h2>Transfer Cash</h2>
+                <p>Transfer cash to another user</p>
+            </button>
         </div>
         
         <!--Deposit Cash-->
@@ -102,6 +114,9 @@ if (isset($_POST['transfer_cash'])) {
             });
         });
     </script>
+    <div class="footnotes" style="font-size: xx-small;">
+        images used as icons on this page are from <a href="https://www.flaticon.com/free-icons/">Transaction icons created by Freepik - Flaticon</a>
+    </div>
 </body>
 </html>
 <?php
