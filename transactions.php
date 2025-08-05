@@ -34,9 +34,9 @@ if (isset($_POST['transfer_cash'])) {
     <div class="transactions content">
         <h1>Transactions</h1>
         <div class="dialog_buttons">
-            <button id="deposit-btn" onclick="openDialog('deposit_dialog')">Deposit Cash</button>
-            <button id="withdraw-btn" onclick="openDialog('withdraw_dialog')">Withdraw Cash</button>
-            <button id="transfer-btn" onclick="openDialog('transfer_dialog')">Transfer Cash</button>
+            <button id="deposit_btn" onclick="openDialog('deposit_dialog')">Deposit Cash</button>
+            <button id="withdraw_btn" onclick="openDialog('withdraw_dialog')">Withdraw Cash</button>
+            <button id="transfer_btn" onclick="openDialog('transfer_dialog')">Transfer Cash</button>
         </div>
         
         <!--Deposit Cash-->
