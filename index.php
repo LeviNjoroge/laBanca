@@ -5,8 +5,10 @@ This page will host the following:
     their current balance
     recent transactons
 */
-include("components/header.php");
-$user_id= $_SESSION['user'];
+if(isset($_COOKIE['user_id'])){
+    
+}
+include("components/header.php");;
 $last_name= $_SESSION['last_name'];
 ?>
 
