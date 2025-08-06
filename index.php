@@ -6,7 +6,7 @@ This page will host the following:
     recent transactons
 */
 if(isset($_COOKIE['user_id'])){
-    
+    $_SESSION['id'] = $_COOKIE['user_id'];
 }
 include("components/header.php");;
 $last_name= $_SESSION['last_name'];
