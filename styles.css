@@ -165,214 +165,22 @@ hr{
     margin-right: 1%;
 }
 
-/* ===============================================
-   DIALOG STYLES
-   =============================================== */
-
-dialog {
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    width: 90%;
-    max-width: 500px;
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    animation: dialogFadeIn 0.3s ease-out;
+dialog{
+    width: 50%;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid rgba(128, 128, 128, 0.884);
+    padding: 10px;
+    /* height: 70%; */
 }
 
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    animation: backdropFadeIn 0.3s ease-out;
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.249);
 }
 
-.form_wrapper {
-    padding: 2rem;
-}
-
-.form_wrapper h3 {
-    margin: 0 0 1.5rem 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
-    font-family: 'Inter', sans-serif;
-}
-
-.form_wrapper form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.form_wrapper label {
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-.form_wrapper input[type="number"] {
-    padding: 12px 16px;
-    border: 2px solid #e5e5e5;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.2s ease;
-    background: #ffffff;
-}
-
-.form_wrapper input[type="number"]:focus {
-    outline: none;
-    border-color: #333;
-    box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
-}
-
-.form_wrapper input[type="submit"] {
-    background: #333;
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 0.5rem;
-}
-
-.form_wrapper input[type="submit"]:hover {
-    background: #000;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.form_wrapper button {
-    background: transparent;
-    color: #666;
-    border: 2px solid #e5e5e5;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Inter', sans-serif;
-}
-
-.form_wrapper button:hover {
-    color: #333;
-    border-color: #ccc;
-    background: #f8f8f8;
-}
-
-/* Dialog animations */
-@keyframes dialogFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-@keyframes backdropFadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Dialog buttons container */
-.dialog_buttons {
-    display: flex;
-    gap: 1rem;
-    margin: 2rem 0;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.dialog_buttons button {
-    background: #333;
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Inter', sans-serif;
-    min-width: 140px;
-}
-
-.dialog_buttons button:hover {
-    background: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Different button colors for transaction types */
-.dialog_buttons #deposit-btn {
-    background: #2d5a3d;
-}
-
-.dialog_buttons #deposit-btn:hover {
-    background: #1a472a;
-}
-
-.dialog_buttons #withdraw-btn {
-    background: #d32f2f;
-}
-
-.dialog_buttons #withdraw-btn:hover {
-    background: #c62828;
-}
-
-.dialog_buttons #transfer-btn {
-    background: #1976d2;
-}
-
-.dialog_buttons #transfer-btn:hover {
-    background: #1565c0;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    dialog {
-        width: 95%;
-        margin: 1rem;
-    }
-    
-    .form_wrapper {
-        padding: 1.5rem;
-    }
-    
-    .dialog_buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .dialog_buttons button {
-        width: 100%;
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 480px) {
-    .form_wrapper {
-        padding: 1rem;
-    }
-    
-    .form_wrapper h3 {
-        font-size: 1.25rem;
-    }
+.form_wrapper{
+    padding: 0px;
 }
 
 .dialog_buttons{
@@ -393,6 +201,14 @@ dialog::backdrop {
         border-radius: 10px;
         background-color: rgba(172, 172, 172, 0.594);
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+    button:hover{
+        background-color: rgb(172, 172, 172);
+        box-shadow: none;
+    }
+    button:active{
+        background-color: rgb(172, 172, 172);
+        box-shadow: none;
     }
 }
 
