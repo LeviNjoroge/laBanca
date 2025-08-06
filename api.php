@@ -81,6 +81,6 @@ function submitReview($username, $telephone, $email, $message){
         echo "<script>alert('Review submitted successfully!')</script>";
     } catch (Throwable $th) {
         echo "<script>alert('Was unable to submit review:(')</script>";
-        echo $th;
+        // echo $th;
     }
 }
