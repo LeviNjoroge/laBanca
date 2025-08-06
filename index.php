@@ -8,7 +8,8 @@ This page will host the following:
 if(isset($_COOKIE['user_id'])){
     $_SESSION['id'] = $_COOKIE['user_id'];
 }
-include("components/header.php");;
+include("components/header.php");
+$first_name= $_SESSION['first_name'];
 $last_name= $_SESSION['last_name'];
 ?>
 
