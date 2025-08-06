@@ -56,7 +56,7 @@ function transfer_cash($from, $to, $amount){
         
     } catch (Exception $e) {
         echo "<script>alert('Was unable to transfer {$amount} to user_{$to}:(')</script>";
-        throw $e;
+        // throw $e;
     }
 }
 
