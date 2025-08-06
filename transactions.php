@@ -97,11 +97,11 @@ if (isset($_POST['transfer_cash'])) {
         
         function closeDialog() {
             // Close any open dialog
-            document.querySelectorAll("dialog").forEach(dialog => {
-                if (dialog.open) {
+            // document.querySelectorAll("dialog").forEach(dialog => {
+            //     if (dialog.open) {
                     dialog.close();
-                }
-            });
+            //     }
+            // });
         }
         
         // Add click-outside-to-close functionality to all dialogs
