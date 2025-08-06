@@ -6,7 +6,7 @@ This page will host the following:
     recent transactons
 */
 include("components/header.php");
-$= $_SESSION['first_name'];
+$user_id= $_SESSION['user'];
 $last_name= $_SESSION['last_name'];
 ?>
 
