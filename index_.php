@@ -231,6 +231,7 @@ $last_name= $_SESSION['last_name'];
             </div>
         </div>
 
+        //
         <div class="quick-actions">
             <div class="action-card">
                 <div class="action-icon">💳</div>
