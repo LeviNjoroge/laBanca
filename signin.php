@@ -54,6 +54,9 @@ if(isset($_POST["signin"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBanca</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google OAuth -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
     <div class="form-container">
@@ -66,9 +69,35 @@ if(isset($_POST["signin"])){
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" placeholder="********" required> <br>
 
-            <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>! 
-            <br>
-            731434090589-29ggu4sl4cc7b1necf7s1o00ocluj3ij.apps.googleusercontent.com
+            <input type="submit" value="Sign In" name="signin" id="submit"> 
+            
+            <!-- Google OAuth Divider -->
+            <div class="oauth-divider">
+                <span>or</span>
+            </div>
+            
+            <!-- Google Sign In Button -->
+            <div id="g_id_onload"
+                 data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+                 data-context="signin"
+                 data-ux_mode="popup"
+                 data-callback="handleGoogleSignIn"
+                 data-auto_prompt="false">
+            </div>
+            
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-shape="rectangular"
+                 data-theme="outline"
+                 data-text="signin_with"
+                 data-size="large"
+                 data-logo_alignment="left"
+                 data-width="100%">
+            </div>
+            
+            <div class="signup-link">
+                Don't have an account? <a href="signup.php">Register here</a>!
+            </div>
             
             <p id="error">
             <?php
@@ -79,6 +108,39 @@ if(isset($_POST["signin"])){
             </p>
         </form>
     </div>
+    
+    <script>
+        // Handle Google Sign-In response
+        function handleGoogleSignIn(response) {
+            console.log('Google Sign-In Response:', response);
+            
+            // Send the Google credential token to your PHP backend
+            fetch('google_oauth.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    credential: response.credential,
+                    action: 'signin'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect to dashboard on successful authentication
+                    window.location.href = data.redirect || 'index.php';
+                } else {
+                    // Show error message
+                    alert(data.message || 'Authentication failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during authentication');
+            });
+        }
+    </script>
 </body>
 </html>
 
