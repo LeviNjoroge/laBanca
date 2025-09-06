@@ -1,5 +1,9 @@
+#ignore database setup
 database.php
+#ignore oauth set up file
 gClientSetup.php
-vendor
+#ignore vendor
+\vendor
+
 composure.json
 composure.lock
