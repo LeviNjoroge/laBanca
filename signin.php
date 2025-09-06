@@ -57,9 +57,6 @@ if(isset($_POST["signin"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBanca</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Google OAuth -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
     <div class="form-container">
@@ -72,9 +69,9 @@ if(isset($_POST["signin"])){
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" placeholder="********" required> <br>
 
-            <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>! 
+            <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>!  <br>
 
-            <a href="<?php ?>">Log in via google</a>
+            <a href="<?php $client->createAuthUrl()?>">Log in via google</a>
             <br>
             
             
