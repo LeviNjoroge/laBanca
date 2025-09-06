@@ -1,3 +1,5 @@
 database.php
 gClientSetup.php
 vendor
+composure.json
+composure.lock
