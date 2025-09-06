@@ -1,4 +1,7 @@
 <?php
+// google oauth:
+require "gClientSetup.php";
+
 // sign in page
 include("database.php");
 session_start();
@@ -70,6 +73,8 @@ if(isset($_POST["signin"])){
             <input type="password" name="password" id="password" placeholder="********" required> <br>
 
             <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>! 
+
+            <a href="<?php ?>">Log in via google</a>
             <br>
             
             

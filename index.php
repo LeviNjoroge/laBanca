@@ -1,4 +1,5 @@
 <?php
+
 /* 
 This page will host the following:
     A greeting + the second name of the user
