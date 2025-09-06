@@ -71,7 +71,7 @@ if(isset($_POST["signin"])){
 
             <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>!  <br>
 
-            <a href="<?php $client->createAuthUrl()?>">Log in via google</a>
+            <a href="<?php echo $client->createAuthUrl();?>">Log in via google</a>
             <br>
             
             
