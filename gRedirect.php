@@ -3,8 +3,9 @@
 require "gClientSetup.php";
 require "database.php";
 
-if(!isset($_GET["code"])){
+if (!isset($_GET["code"])) {
     echo "<script>alert('Login Failed, please retry another time')</script>";
+    exit;
 }
 
 try {
@@ -14,41 +15,43 @@ try {
     $oauth = new Google\Service\Oauth2($client);
 
     $userInfo = $oauth->userinfo->get();
-    // Convert object to array for iteration
-    $profileDetails = get_object_vars($userInfo);
 
-    foreach ($profileDetails as $key => $value) {
-        echo "<p><strong>$key</strong>: $value</p>";
-    }
+    // Split name into parts
+    $nameParts = explode(" ", $userInfo->name);
+    $first_name = $nameParts[0] ?? "";
+    $surname    = $nameParts[1] ?? "";
+    $last_name  = $nameParts[2] ?? "";
 
-    // database logs
-    $name = explode($userInfo["name"]," ");
-    $first_name = $name[0];
-    $surname = $name[1]??"";
-    $last_name = $name[2]??"";
-    $id = $userInfo["id"];
-    $email_address = $userInfo["email"];
+    // Collect details
+    $id = $userInfo->id;
+    $email_address = $userInfo->email;
+
+    // Insert user into DB
     $sql_add_user = "
-                        INSERT INTO users(id, first_name, last_name, surname, email_address)
-                        VALUES ('$id','$first_name', '$last_name', '$surname', '$email')
+        INSERT INTO users(id, first_name, last_name, surname, email_address)
+        VALUES ('$id','$first_name', '$last_name', '$surname', '$email_address')
     ";
-    try{
+
+    try {
         mysqli_query($conn, $sql_add_user);
         header("Location: index.php");
-    }
-    catch(Exception $e){
+        exit;
+    } catch (Exception $e) {
         if (str_contains($e->getMessage(), 'Duplicate entry')) {
-        header("Location: index.php");
-        }
-        else {
-            $error = "Could not register user. <br>Try again later!";
-            echo "<script>alert($error)</script>";
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "<script>alert('Could not register user. Try again later!')</script>";
+            header("Location: signin.php");
+            exit;
         }
     }
 
 } catch (\Throwable $th) {
+    echo "<script>alert('".$th->getMessage()."')</script>";
     header("Location: signin.php");
+    echo "<script>console.log('".$th->getMessage()."')</script>";
+    // exit;
 }
-
 
 ?>
