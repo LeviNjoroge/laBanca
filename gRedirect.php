@@ -14,7 +14,10 @@ $oauth = new Google\Service\Oauth2($client);
 
 $userInfo = $oauth->userinfo->get();
 echo "<h1>Hello $userInfo->name</h2>";
-echo $userInfo ->profile;
+$profileDetails = $userInfo ->profile;
+foreach ($profileDetails as $key => $value) {
+    echo "$key: $value";
+}
 } catch (\Throwable $th) {
     header("Location: signin.php");
 }
