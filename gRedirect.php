@@ -8,18 +8,27 @@ if(!isset($_GET["code"])){
 
 try {
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-$client->setAccessToken($token['access_token']);
+    $client->setAccessToken($token['access_token']);
 
-$oauth = new Google\Service\Oauth2($client);
+    $oauth = new Google\Service\Oauth2($client);
 
-$userInfo = $oauth->userinfo->get();
-echo "<h1>Hello $userInfo->name</h2>";
-$profileDetails = $userInfo ->profile;
-foreach ($profileDetails as $key => $value) {
-    echo "$key: $value";
-}
+    $userInfo = $oauth->userinfo->get();
+    // Convert object to array for iteration
+    $profileDetails = get_object_vars($userInfo);
+
+    foreach ($profileDetails as $key => $value) {
+        echo "<p><strong>$key</strong>: $value</p>";
+    }
+
+    // database logs
+    $name = explode($userInfo["name"]," ");
+    $firstname = $name[0];
+    $surname = $name[1]??"";
+    $lastname = $name[2]??"";
+
 } catch (\Throwable $th) {
     header("Location: signin.php");
 }
+
 
 ?>
