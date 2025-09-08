@@ -13,5 +13,6 @@ $oauth = new Google\Service\Oauth2($client);
 
 $userInfo = $oauth->userinfo->get();
 echo "<h1>Hello $userInfo->name</h2>";
+echo $userInfo ->profile;
 
 ?>
