@@ -38,10 +38,11 @@ try {
     }
     catch(Exception $e){
         if (str_contains($e->getMessage(), 'Duplicate entry')) {
-        $error = "Duplicate entry!";
+        header("Location: index.php");
         }
         else {
             $error = "Could not register user. <br>Try again later!";
+            echo "<script>alert($error)</script>";
         }
     }
 
