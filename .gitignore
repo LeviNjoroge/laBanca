@@ -2,8 +2,5 @@
 database.php
 #ignore oauth set up file
 gClientSetup.php
-#ignore vendor
-\vendor
-
-composure.json
-composure.lock
+#ignore credentials
+credentials.php
