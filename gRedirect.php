@@ -26,11 +26,14 @@ try {
     $id = $userInfo->id;
     $email_address = $userInfo->email;
 
+    // echo $id,$first_name, $last_name,$surname,$email_address;
+
     // Insert user into DB
     $sql_add_user = "
         INSERT INTO users(id, first_name, last_name, surname, email_address)
         VALUES ('$id','$first_name', '$last_name', '$surname', '$email_address')
     ";
+    // echo "<script>alert('Could not register user. Try again later!')</script>";
 
     try {
         mysqli_query($conn, $sql_add_user);
@@ -46,6 +49,8 @@ try {
             exit;
         }
     }
+    $_SESSION['id'] = $id; ////////
+
 
 } catch (\Throwable $th) {
     echo "<script>alert('".$th->getMessage()."')</script>";
