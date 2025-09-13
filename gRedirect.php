@@ -26,7 +26,7 @@ try {
     $id = $userInfo->id;
     $email_address = $userInfo->email;
 
-    // echo $id,$first_name, $last_name,$surname,$email_address;
+    echo "<script>alert('details fetched')</script>";
 
     // Insert user into DB
     $sql_add_user = "
