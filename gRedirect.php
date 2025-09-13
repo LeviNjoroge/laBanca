@@ -26,31 +26,35 @@ try {
     $id = $userInfo->id;
     $email_address = $userInfo->email;
 
-    echo "<script>alert('details fetched')</script>";
+    echo $id,"<br>",$first_name,"<br>",$last_name,"<br>",$surname,"<br>",$email_address;
 
-    // Insert user into DB
-    $sql_add_user = "
-        INSERT INTO users(id, first_name, last_name, surname, email_address)
-        VALUES ('$id','$first_name', '$last_name', '$surname', '$email_address')
-    ";
-    echo "<script>alert('query prepared')</script>";
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+        // Insert user into DB
+        $sql_add_user = "
+            INSERT INTO users(id, first_name, last_name, surname, email_address)
+            VALUES ('$id','$first_name', 
+            " . ($last_name ? "'$last_name'" : "NULL") . ",
+            " . ($surname ? "'$surname'" : "NULL") . ",
+             '$email_address')";
+        echo "<script>alert('query prepared')</script>";
 
-    try {
-        mysqli_query($conn, $sql_add_user);
-        echo "<script>alert('Was unable to populate dtb')</script>";
-        header("Location: index.php");
-        exit;
-    } catch (Exception $e) {
-        if (str_contains($e->getMessage(), 'Duplicate entry')) {
+        try {
+            mysqli_query($conn, $sql_add_user);
+            echo "<script>alert('Was unable to populate dtb')</script>";
             header("Location: index.php");
             exit;
-        } else {
-            echo "<script>alert('Could not register user. Try again later!')</script>";
-            header("Location: signin.php");
-            exit;
+        } catch (Exception $e) {
+            if (str_contains($e->getMessage(), 'Duplicate entry')) {
+                header("Location: index.php");
+                exit;
+            } else {
+                echo "<script>alert('Could not register user. Try again later!')</script>";
+                header("Location: index.php");
+                exit;
+            }
         }
-    }
-    $_SESSION['id'] = $id; ////////
+        $_SESSION['id'] = $id;
+    
 
 
 } catch (\Throwable $th) {
