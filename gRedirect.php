@@ -33,10 +33,11 @@ try {
         INSERT INTO users(id, first_name, last_name, surname, email_address)
         VALUES ('$id','$first_name', '$last_name', '$surname', '$email_address')
     ";
-    // echo "<script>alert('Could not register user. Try again later!')</script>";
+    echo "<script>alert('query prepared')</script>";
 
     try {
         mysqli_query($conn, $sql_add_user);
+        echo "<script>alert('Was unable to populate dtb')</script>";
         header("Location: index.php");
         exit;
     } catch (Exception $e) {
