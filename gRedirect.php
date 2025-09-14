@@ -27,20 +27,20 @@ if (!isset($_GET["code"])) {
     echo $id,"<br>",$first_name,"<br>",$last_name,"<br>",$surname,"<br>",$email_address;
 
     
-        // Insert user into DB
-        $sql_add_user = "
-            INSERT INTO users(id, first_name, last_name, surname, email_address)
-            VALUES ('$id','$first_name', 
-            " . ($last_name ? "'$last_name'" : "NULL") . ",
-            " . ($surname ? "'$surname'" : "NULL") . ",
-             '$email_address')";
+    // Insert user into DB
+    $sql_add_user = "
+        INSERT INTO users(id, first_name, last_name, surname, email_address)
+        VALUES ('$id','$first_name', 
+        " . ($last_name ? "'$last_name'" : "NULL") . ",
+        " . ($surname ? "'$surname'" : "NULL") . ",
+        '$email_address')";
 
-        echo "<script>alert('query prepared')</script>";
+    echo "<script>alert('query prepared')</script>";
 
-        mysqli_query($conn, $sql_add_user);
-            $verify_user = "SELECT * FROM users WHERE id = '$id'";
+    mysqli_query($conn, $sql_add_user);
+    $verify_user = "SELECT * FROM users WHERE id = '$id'";
 
-            $result = mysqli_query($conn, $verify_user);
+    $result = mysqli_query($conn, $verify_user);
 
             if (mysqli_num_rows($result) > 0) {
                 $user = mysqli_fetch_assoc($result);
@@ -57,6 +57,6 @@ if (!isset($_GET["code"])) {
                 $_SESSION['balance'] = $user["balance"];
                 $_SESSION['profile_picture'] = $user["profile_picture"] ?? 'default.jpeg';
             }
-            header("Location: index.php");
-            exit;
+    header("Location: index.php");
+    exit;
 ?>
