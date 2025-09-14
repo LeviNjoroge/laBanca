@@ -34,8 +34,10 @@ if (!isset($_GET["code"])) {
             " . ($last_name ? "'$last_name'" : "NULL") . ",
             " . ($surname ? "'$surname'" : "NULL") . ",
              '$email_address')";
+
         echo "<script>alert('query prepared')</script>";
-            mysqli_query($conn, $sql_add_user);
+
+        mysqli_query($conn, $sql_add_user);
             $verify_user = "SELECT * FROM users WHERE id = '$id'";
 
             $result = mysqli_query($conn, $verify_user);
