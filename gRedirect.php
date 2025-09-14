@@ -26,7 +26,7 @@ if (!isset($_GET["code"])) {
 
     echo $id,"<br>",$first_name,"<br>",$last_name,"<br>",$surname,"<br>",$email_address;
 
-    // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    
         // Insert user into DB
         $sql_add_user = "
             INSERT INTO users(id, first_name, last_name, surname, email_address)
