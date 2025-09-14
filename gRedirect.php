@@ -35,8 +35,6 @@ if (!isset($_GET["code"])) {
             " . ($surname ? "'$surname'" : "NULL") . ",
              '$email_address')";
         echo "<script>alert('query prepared')</script>";
-
-        try {
             mysqli_query($conn, $sql_add_user);
             $verify_user = "SELECT * FROM users WHERE id = '$id'";
 
@@ -59,14 +57,4 @@ if (!isset($_GET["code"])) {
             }
             header("Location: index.php");
             exit;
-        } catch (Exception $e) {
-            if (str_contains($e->getMessage(), 'Duplicate entry')) {
-                header("Location: index.php");
-                exit;
-            } else {
-                echo "<script>alert('Could not register user. Try again later!')</script>";
-                header("Location: signin.php");
-                exit;
-            }
-        }
 ?>
