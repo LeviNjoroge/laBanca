@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "gClientSetup.php";
 require "database.php";
 
@@ -7,8 +7,6 @@ if (!isset($_GET["code"])) {
     echo "<script>alert('Login Failed, please retry another time')</script>";
     exit;
 }
-
-try {
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
     $client->setAccessToken($token['access_token']);
 
@@ -28,7 +26,7 @@ try {
 
     echo $id,"<br>",$first_name,"<br>",$last_name,"<br>",$surname,"<br>",$email_address;
 
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // Insert user into DB
         $sql_add_user = "
             INSERT INTO users(id, first_name, last_name, surname, email_address)
@@ -40,7 +38,25 @@ try {
 
         try {
             mysqli_query($conn, $sql_add_user);
-            echo "<script>alert('Was unable to populate dtb')</script>";
+            $verify_user = "SELECT * FROM users WHERE id = '$id'";
+
+            $result = mysqli_query($conn, $verify_user);
+
+            if (mysqli_num_rows($result) > 0) {
+                $user = mysqli_fetch_assoc($result);
+                $_SESSION['username'] = $user["username"];
+                $user_password = $user["password"];
+                $_SESSION['first_name'] = $user["first_name"];
+                $_SESSION['last_name'] = $user["last_name"];
+                $_SESSION['id'] = $user["id"];
+                $_SESSION['id_no'] = $user["national_id_no"];
+                $_SESSION['date_of_birth'] = $user["date_of_birth"];
+                $_SESSION['surname'] = $user["surname"];
+                $_SESSION['email'] = $user["email_address"];
+                $_SESSION['phone'] = $user["phone_number"];
+                $_SESSION['balance'] = $user["balance"];
+                $_SESSION['profile_picture'] = $user["profile_picture"] ?? 'default.jpeg';
+            }
             header("Location: index.php");
             exit;
         } catch (Exception $e) {
@@ -49,19 +65,8 @@ try {
                 exit;
             } else {
                 echo "<script>alert('Could not register user. Try again later!')</script>";
-                header("Location: index.php");
+                header("Location: signin.php");
                 exit;
             }
         }
-        $_SESSION['id'] = $id;
-    
-
-
-} catch (\Throwable $th) {
-    echo "<script>alert('".$th->getMessage()."')</script>";
-    header("Location: signin.php");
-    echo "<script>console.log('".$th->getMessage()."')</script>";
-    // exit;
-}
-
 ?>
