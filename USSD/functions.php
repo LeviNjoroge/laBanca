@@ -13,8 +13,8 @@ function checkRegistration($user_username){
     }
 }
 
-function verifyUser($user_username, $user_password){
-    $verify_user = "SELECT password FROM users WHERE username = '$user_username' OR email_address = '$user_username' OR id='$user_username'";
+function verifyUser($id, $user_password){
+    $verify_user = "SELECT password FROM users WHERE id = '$id'";
     $result = mysqli_query($GLOBALS["conn"], $verify_user);
     $row = mysqli_fetch_assoc($result);
     $hashedPassword = $row["password"];
