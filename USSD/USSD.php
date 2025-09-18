@@ -41,34 +41,26 @@ if ($text == "") {
     // $user_username = $level[1]; 
     $user_password = $level[2];
     if(verifyUser($_SESSION["id"], $user_password)){
-        $response = "CON Log in Successful!
-        Select a service:
-        1. Deposit funds
-        2. Withdraw funds
-        3. Check Account balance
-        4. Mini statement
-        5. Account settings
-        ";
+        $response = "CON Log in Successful!\nSelect a service:\n1. Deposit funds\n2. Withdraw funds\n3. Check Account balance\n4. Mini statement\n5. Account settings";
     } else{
         $response = "END Incorrect password, please try again later!";
     }
-}
-elseif($level[3] == "1"){
+} elseif($level[0] == "2" && isset($_SESSION["id"]) && $level[3] == "1"){
     $response = "CON Diposit: 
     Enter the amount";
 }
-elseif($level[3] == "2"){
+elseif($level[0] == "2" && isset($_SESSION["id"]) && $level[3] == "2"){
     $response = "CON Withdrawal:
     Enter the amount";
 }
-elseif($level[3] == "3"){
-    $balance = 
+elseif($level[0] == "2" && isset($_SESSION["id"]) && $level[3] == "3"){
+    $balance = requestBalance($_SESSION["id"]);
     $response = "END Your account balance is {$balance}";
 }
-elseif($level[3] == "4"){
+elseif($level[0] == "2" && isset($_SESSION["id"]) && $level[3] == "4"){
     $response = "";
 }
-elseif($level[3] == "5"){
+elseif($level[0] == "2" && isset($_SESSION["id"]) && $level[3] == "5"){
     $response = "";
 }
 header('Content-type: text/plain');

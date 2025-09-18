@@ -24,3 +24,10 @@ function verifyUser($id, $user_password){
         return 0;
     }
 }
+
+function requestBalance($id){
+    $query = "SELECT balanxce FROM users WHERE id = '$id'";
+    $result = mysqli_query($GLOBALS["conn"], $query);
+    $row = mysqli_fetch_assoc($result);
+    return $row["password"];
+}
