@@ -1,4 +1,6 @@
 <?php
+
+// this doesn't
 require "../api.php";
 require "functions.php";
 session_start();
