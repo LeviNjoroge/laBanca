@@ -1,6 +1,5 @@
 <?php
 
-// this doesn't work at level 3 tho:(
 require "../api.php";
 require "functions.php";
 session_start();
@@ -11,6 +10,7 @@ session_start();
 $text        = $_GET["text"];
 
 $level = explode("*", $text);
+// this doesn't work at level 3 tho:(
 
 if ($text == "") {
     // First menu
