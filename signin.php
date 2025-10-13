@@ -1,6 +1,6 @@
 <?php
 // google oauth:
-require "gClientSetup.php";
+// require "gClientSetup.php";
 
 // sign in page
 include("database.php");
@@ -20,7 +20,7 @@ if(isset($_POST["signin"])){
         $user_password = $user["password"];
         $_SESSION['first_name'] = $user["first_name"];
         $_SESSION['last_name'] = $user["last_name"];
-        $_SESSION['id'] = $user["id"]; ////////
+        $_SESSION['id'] = $user["id"]; 
         $_SESSION['id_no'] = $user["national_id_no"];
         $_SESSION['date_of_birth'] = $user["date_of_birth"];
         $_SESSION['surname'] = $user["surname"];
@@ -71,7 +71,6 @@ if(isset($_POST["signin"])){
 
             <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>!  <br>
             <br>
-            
             
             <p id="error">
             <?php

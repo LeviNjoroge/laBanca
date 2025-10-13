@@ -50,29 +50,28 @@ if (isset($_POST["signup"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBanca</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Google OAuth -->
 </head>
 <body>
     <div class="form-container">
         <h1>Welcome to LaBanca!</h1>
         <h2>Registration Form</h2>
         <form action="" method="post">
-            <label for="first_name">First Name:</label> 
+            <label for="first_name">First Name<span style="color: red;" title="This field is required">*</span>:</span></label> 
             <input type="text" name="first_name" id="first_name" placeholder="Joe" required> <br>
 
             <label for="last_name">Last Name:</label> 
             <input type="text" name="last_name" id="last_name" placeholder="William"> <br>  
 
-            <label for="surname">Surname:</label>
+            <label for="surname">Surname<span style="color: red;" title="This field is required">*</span>:</label>
             <input type="text" name="surname" id="surname" placeholder="Doe" required> <br><hr>
 
-            <label for="date_of_birth">Date of Birth:</label> 
+            <label for="date_of_birth">Date of Birth<span style="color: red;" title="This field is required">*</span>:</label> 
             <input type="date" name="date_of_birth" id="date_of_birth" required> <br>
 
-            <label for="id">National ID No.:</label> 
+            <label for="id">National ID No.<span style="color: red;" title="This field is required">*</span>:</label> 
             <input type="number" name="id" id="id" placeholder="88888888" required> <br> <hr>
 
-            <label for="username">Username:</label> 
+            <label for="username">Username<span style="color: red;" title="This field is required">*</span>:</label> 
             <input type="text" name="username" id="username" placeholder="joedoe01" required> <br>
 
             <label for="email">Email Address:</label> 
@@ -81,7 +80,7 @@ if (isset($_POST["signup"])) {
             <label for="phone">Phone Number:</label> 
             <input type="tel" name="phone" id="phone" placeholder="0712345678"> <br>
 
-            <label for="password">Password:</label> 
+            <label for="password">Password<span style="color: red;" title="This field is required">*</span>:</label> 
             <input type="password" name="password" id="password" required> <br>
 
             <input type="submit" value="Submit" name="signup" id="submit">  Already registered? <a href="signin.php">Log in here</a>!<br>
