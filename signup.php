@@ -51,8 +51,6 @@ if (isset($_POST["signup"])) {
     <title>LaBanca</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Google OAuth -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
     <div class="form-container">

@@ -70,8 +70,6 @@ if(isset($_POST["signin"])){
             <input type="password" name="password" id="password" placeholder="********" required> <br>
 
             <input type="submit" value="Sign In" name="signin" id="submit"> Don't have an account? <a href="signup.php">Register here</a>!  <br>
-
-            <a href="<?php echo $client->createAuthUrl();?>">Log in via google</a>
             <br>
             
             
