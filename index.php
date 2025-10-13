@@ -35,7 +35,7 @@ $last_name= $_SESSION['last_name'];
             </p>
             <!-- <h3 style="border-bottom: 2px solid gray;">Here are your recent transactions:</h3> -->
              <div class="table_wrap">
-                            <table class="show_records">
+                <table class="show_records">
                 <thead>
                     <tr>
                         <th colspan="3" style="text-align:center">RECENT TRANSACTIONS</th>
@@ -68,7 +68,7 @@ $last_name= $_SESSION['last_name'];
                     ?>
                 </tbody>
             </table>
-             </div>
+            </div>
         </div>
     </div>
 </body>
