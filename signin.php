@@ -1,6 +1,4 @@
 <?php
-// google oauth:
-// require "gClientSetup.php";
 
 // sign in page
 include("database.php");
