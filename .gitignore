@@ -4,3 +4,8 @@ database.php
 gClientSetup.php
 #ignore credentials
 credentials.php
+
+USSD/
+vendor/
+
+composure*
