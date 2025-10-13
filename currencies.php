@@ -1,4 +1,6 @@
 <?php
+
+// was trying API
 require "credentials.php";
 
 $url = "https://api.freecurrencyapi.com/v1/latest?apikey={$API_KEY}";
