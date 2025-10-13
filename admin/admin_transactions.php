@@ -13,7 +13,8 @@ include("admin_header.php");
 <body>
     <div class="content">
         <h1>Transactions</h1>
-            <table class="show_records">
+        <div class="table_wrap">
+                        <table class="show_records">
                 <thead>
                     <tr>
                         <th colspan="4" style="text-align:center">RECENT TRANSACTIONS</th>
@@ -48,6 +49,7 @@ include("admin_header.php");
                     ?>
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 </body>
