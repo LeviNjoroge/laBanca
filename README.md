@@ -175,6 +175,14 @@ Potential improvements for the system could include:
 - Interest calculation system
 - Loan management functionality
 
+## 🌐 Live Demo
+
+The website is currently **live and functional** at: **[labanca.free.nf](http://labanca.free.nf)**
+
+> **Status**: Development complete until further notice. The project is fully functional and available for viewing and testing.
+
+**Feedback Welcome**: Any recommendations, suggestions, or bug reports are greatly appreciated! Feel free to reach out via LinkedIn or open an issue.
+
 ## 👨‍💻 Developer
 
 **Levi Njoroge Junior**
