@@ -167,6 +167,7 @@ This project was developed as a learning exercise to understand:
 ## 📝 Future Enhancements
 
 Potential improvements for the system could include:
+- **Mobile Responsive Design** (Priority) - Optimize the interface for mobile and tablet devices
 - API development for mobile applications
 - Advanced transaction filtering and search
 - Email notifications for transactions
@@ -180,6 +181,8 @@ Potential improvements for the system could include:
 The website is currently **live and functional** at: **[labanca.free.nf](http://labanca.free.nf)**
 
 > **Status**: Development complete until further notice. The project is fully functional and available for viewing and testing.
+
+> ⚠️ **Known Issue**: The website is currently optimized for desktop viewing. Mobile responsiveness improvements are planned for future updates to enhance the user experience on smartphones and tablets.
 
 **Feedback Welcome**: Any recommendations, suggestions, or bug reports are greatly appreciated! Feel free to reach out via LinkedIn or open an issue.
 
