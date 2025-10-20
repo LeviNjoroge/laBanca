@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['id'] = $_COOKIE['user_id']; 
 include("api.php");
 if (empty($_SESSION['id'])) {
     header("Location: /signin.php");
