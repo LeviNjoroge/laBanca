@@ -26,7 +26,7 @@ if(isset($_POST["signin"])){
         $_SESSION['phone'] = $user["phone_number"];
         $_SESSION['balance'] = $user["balance"];
         $_SESSION['profile_picture'] = $user["profile_picture"] ?? 'default.jpeg';
-        setcookie("user_id", $user["id"], time() + (60*60*24)); // cookie lasts a day
+        setcookie("user_id", $user["id"], time() + (60*)); // cookie lasts a day
         
         if (password_verify($password, $user_password)) {
             $error = "login successful!";
